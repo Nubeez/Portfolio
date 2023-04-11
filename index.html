@@ -11,10 +11,18 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
     <title>Document</title>
     <style>
+        @font-face {
+            font-family: 'TheJamsil5Bold';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/TheJamsil5Bold.woff2') format('woff2');
+            font-weight: 700;
+            font-style: normal;
+        }
+
         html,
         body {
             height: 100%;
             margin: 0 auto;
+            font-family: 'TheJamsil5Bold';
         }
 
         section {
@@ -34,7 +42,7 @@
 
         .section02 {
             background: yellowgreen;
-            position: relative;
+            overflow: hidden;
         }
 
         .section03 {
@@ -61,28 +69,27 @@
             background: rgb(153, 42, 127);
         }
 
-        .box {
+        /* .box {
             width: 200px;
             height: 200px;
             background-color: red;
             position: absolute;
             left: 50%;
-        }
+        } */
 
-        .front_img {
+        .front_imgbox {
             width: 100%;
             height: 100%;
             position: absolute;
-            overflow: hidden;
-            left: 0;
+            left: 0%;
             top: 25%;
+            transform: translateX(-50%);
         }
 
-        .front_img img {
-            width: 50%;
+        .front_img {
+            width: 33.2%;
             height: 50%;
             object-fit: cover;
-            left: -100%;
         }
 
         .content {
@@ -148,34 +155,66 @@
             width: 20%;
         }
 
-        .contact__text {
+        .contact_effect {
+            margin-top: 10px;
             text-align: center;
-            margin-top: 50px;
         }
 
-        .contact_effect>a {
+        .logo_img>a {
             text-decoration: none;
         }
 
-        .contact__mail {
-            font-size: 2em;
+        .contact__text {
+            font-size: 1.2em;
+            font-weight: bold;
             color: #000000;
         }
 
-        .contact__text {
-            line-height: 50px;
+        .contact__infotxt {
+            margin-top: 50px;
             font-size: 0.8em;
             color: #838383;
         }
 
         footer {
-            height: 8%;
+            height: 9%;
             background-color: black;
         }
 
         .front_title>h1 {
             color: transparent;
             -webkit-text-stroke: 2px #000000;
+        }
+
+        .github {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .content08 {
+            max-width: 1600px;
+            margin: 0 auto;
+            height: 80px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .content08>h5 {
+            color: #fff;
+        }
+
+        #counter {
+            color: #fff;
+        }
+
+        .icon_bye {
+            font-size: 20px;
+            margin-left: 5px;
+        }
+
+        .footer_txt>span {
+            color: #fff
         }
     </style>
 </head>
@@ -188,8 +227,10 @@
         </div>
     </section>
     <section class="section02">
-        <div class="front_img">
-            <img src="img/cat2.jpg" alt="이미지 설명">
+        <div class="front_imgbox">
+            <img src="img/cat2.png" class="front_img" alt="이미지 설명">
+            <img src="img/cat.png" class="front_img" alt="이미지 설명">
+            <img src="img/cat2.png" class="front_img" alt="이미지 설명">
         </div>
         <div class="content02">
             <h1>제목</h1>
@@ -197,8 +238,10 @@
         </div>
     </section>
     <section class="section03">
-        <div class="front_img">
-            <img src="img/cat.jpg" alt="cat">
+        <div class="front_imgbox">
+            <img src="img/cat.png" class="front_img" alt="이미지 설명">
+            <img src="img/cat2.png" class="front_img" alt="이미지 설명">
+            <img src="img/cat.png" class="front_img" alt="이미지 설명">
         </div>
         <div class="content03">
             <h1>제목</h1>
@@ -206,8 +249,10 @@
         </div>
     </section>
     <section class="section04">
-        <div class="front_img">
-            <img src="img/cat.jpg" alt="cat">
+        <div class="front_imgbox">
+            <img src="img/cat.png" class="front_img" alt="이미지 설명">
+            <img src="img/cat2.png" class="front_img" alt="이미지 설명">
+            <img src="img/cat.png" class="front_img" alt="이미지 설명">
         </div>
         <div class="content04">
             <h1>제목</h1>
@@ -215,8 +260,10 @@
         </div>
     </section>
     <section class="section05">
-        <div class="front_img">
-            <img src="img/cat.jpg" alt="cat">
+        <div class="front_imgbox">
+            <img src="img/cat2.png" class="front_img" alt="이미지 설명">
+            <img src="img/cat.png" class="front_img" alt="이미지 설명">
+            <img src="img/cat2.png" class="front_img" alt="이미지 설명">
         </div>
         <div class="content05">
             <h1>제목</h1>
@@ -224,8 +271,10 @@
         </div>
     </section>
     <section class="section06">
-        <div class="front_img">
-            <img src="img/cat.jpg" alt="cat">
+        <div class="front_imgbox">
+            <img src="/img/cat.png" class="front_img" alt="이미지 설명">
+            <img src="img/cat2.png" class="front_img" alt="이미지 설명">
+            <img src="img/cat.png" class="front_img" alt="이미지 설명">
         </div>
         <div class="content06">
             <h1>제목</h1>
@@ -233,8 +282,10 @@
         </div>
     </section>
     <section class="section07">
-        <div class="front_img">
-            <img src="img/cat.jpg" alt="cat">
+        <div class="front_imgbox">
+            <img src="img/cat2.png" class="front_img" alt="이미지 설명">
+            <img src="img/cat.png" class="front_img" alt="이미지 설명">
+            <img src="img/cat2.png" class="front_img" alt="이미지 설명">
         </div>
         <div class="content07">
             <h1>제목</h1>
@@ -251,48 +302,51 @@
             <h2>Contact Me</h2>
             <div class="contact__info">
                 <div class="logo_img">
-                    <div class="logo_center"><img src="img/logo/kakaoicon.png" alt="kakaotalk"></div>
+                    <div class="logo_center"><img src="img/logo/kakaoicon.png" alt="Phone"></div>
                     <div class="contact_effect">
-                        <p>010-2029-2827</p>
+                        <p class="contact__text">010-2029-2827</p>
                     </div>
                 </div>
                 <div class="logo_img">
-                    <div class="logo_center"><img src="img/logo/kakaoicon.png" alt="kakaotalk"></div>
-                    <div class="contact_effect"><a target="_blank"
-                            href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=nonckk@gmail.com"
-                            class="contact__mail">nonckk@gmail.com</a></div>
+                    <a target="_blank" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=nonckk@gmail.com">
+                        <div class="logo_center"><img src="img/logo/kakaoicon.png" alt="E-mail"></div>
+                        <div class="contact_effect"><span class="contact__text">nonckk@gmail.com</span>
+                        </div>
+                    </a>
                 </div>
                 <div class="logo_img">
-                    <div class="logo_center"><img src="img/logo/kakaoicon.png" alt="kakaotalk"></div>
-                    <div class="contact_effect"><a target="_blank" href="https://open.kakao.com/o/sOpxvzef"
-                            class="contact__mail">Kakao
-                            Talk</a></div>
+                    <a target="_blank" href="https://open.kakao.com/o/sOpxvzef" class="contact__text">
+                        <div class="logo_center"><img src="img/logo/kakaoicon.png" alt="kakaotalk"></div>
+                        <div class="contact_effect"><span class="contact__text">Kakao Talk</span></div>
+                    </a>
                 </div>
                 <div class="logo_img">
-                    <div class="logo_center"><img src="img/logo/kakaoicon.png" alt="kakaotalk"></div>
-                    <div class="contact_effect"><a target="_blank" href="https://goo.gl/maps/a5yH7BQziUiueuLE9"
-                            class="contact__mail">경기도
-                            시흥시</a>
-                    </div>
+                    <a target="_blank" href="https://goo.gl/maps/a5yH7BQziUiueuLE9" class="contact__text">
+                        <div class="logo_center"><img src="img/logo/kakaoicon.png" alt="Residence"></div>
+                        <div class="contact_effect"><span class="contact__text">경기도 상록수</span></div>
+                    </a>
                 </div>
             </div>
-            <p class="contact__text">저에 대해 더 궁금하신 내용이 있으면 언제든 연락 주세요&nbsp;&#58;&#41;</p>
+            <p class="contact__infotxt">저에 대해 더 궁금하신 내용이 있으면 언제든 연락 주세요&nbsp;&#58;&#41;</p>
         </div>
     </section>
     <footer>
         <div class="footer_wrap">
             <div class="content08">
+                <div><a target="_blank" href="https://github.com/Nubeez" class="github">GitHub</a>
+                </div>
+                <div class="footer_txt"><span>Thank you</span><span class="icon_bye">&#128075;</span>
+                </div>
             </div>
-            <div></div>
-        </div>
     </footer>
 </body>
-
+<!-- 스크립트 구간 -->
 <script>
     const sections = document.querySelectorAll("section");
     sections.forEach((section) => {
-        const img = section.querySelector(".front_img img");
-        const content = section.querySelector(".content");
+        const imgs = section.querySelectorAll(".front_img");
+        const imgCount = imgs.length; // 추가된 변수
+        const content = section.querySelector(".content" + section.className.slice(7));
 
         gsap.from(content, {
             y: 100,
@@ -300,18 +354,25 @@
             duration: 1,
             delay: 0.5
         });
-
-        ScrollTrigger.create({
-            trigger: section,
-            start: "top bottom",
-            end: "bottom top",
-            markers: true,
-            scrub: true,
-            onUpdate: (self) => {
-                gsap.set(img, {
-                    x: (self.progress * 1.35) * (window.innerWidth * 0.75)
-                });
-            }
+        imgs.forEach((img, index) => {
+            // 각 이미지의 위치를 중앙으로 맞추기 위해 사용됩니다.
+            const offset = ((index - (imgCount - 1) / 2) / imgCount) * window.innerWidth * 0.2;
+            ScrollTrigger.create({
+                trigger: section,
+                start: "top bottom",
+                end: "bottom top",
+                markers: true,
+                scrub: true,
+                onUpdate: (self) => {
+                    imgs.forEach((img, index) => {
+                        const offset = ((3) / imgCount) * window.innerWidth * 0.2;
+                        console.log(offset)
+                        gsap.set(img, {
+                            x: (self.progress) * offset
+                        });
+                    });
+                }
+            });
         });
     });
 </script>
