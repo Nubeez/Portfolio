@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/CSSPlugin.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/ScrollToPlugin.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"></script>
+
     <title>Document</title>
     <style>
         @font-face {
@@ -25,6 +25,84 @@
             font-family: 'TheJamsil5Bold';
         }
 
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 99;
+        }
+
+        .header .monument {
+            line-height: 50px;
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
+            color: #333;
+            padding-left: 50px;
+        }
+
+        .header .nav {
+            position: absolute;
+            top: 0%;
+            left: 0;
+            width: 100%;
+            background-color: white;
+            transform: translateY(-100%);
+            transition: transform 0.3s ease;
+        }
+
+        .header .nav.show {
+            transform: translateY(0);
+        }
+
+        .header .nav__list {
+            height: 25px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            list-style: none;
+            margin-right: 30px;
+        }
+
+        .header .nav__item {
+            margin: 20px 0;
+        }
+
+        .header .nav__btn {
+            font-size: 16px;
+            font-weight: bold;
+            text-decoration: none;
+            color: #333;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+        }
+
+        .header .nav__btn:hover {
+            opacity: 0.7;
+        }
+
+        .header .nav__caption {
+            font-size: 12px;
+            color: #999;
+            margin-top: 5px;
+            text-align: center;
+        }
+
+        .header .nav__caption-inner {
+            opacity: 0;
+            padding: 5px 10px;
+            border-radius: 20px;
+            background-color: #f5f5f5;
+        }
+
+        .header .nav__item:hover .nav__caption-inner {
+            opacity: 1;
+            transition: 1s;
+        }
+
         section {
             width: 100%;
             height: 100%;
@@ -35,47 +113,44 @@
         }
 
         .section01 {
-            background: orange;
+            /* background: orange; */
             width: 100%;
             height: 100%;
         }
 
         .section02 {
-            background: yellowgreen;
+            /* background: yellowgreen; */
             overflow: hidden;
         }
 
         .section03 {
-            background: firebrick;
+            /* background: firebrick; */
+            overflow: hidden;
         }
 
         .section04 {
-            background: cornflowerblue;
+            /* background: cornflowerblue; */
+            overflow: hidden;
         }
 
         .section05 {
-            background: seagreen;
+            /* background: seagreen; */
+            overflow: hidden;
         }
 
         .section06 {
-            background: rgb(174, 227, 77);
+            /* background: rgb(174, 227, 77); */
+            overflow: hidden;
         }
 
         .section07 {
-            background: rgb(164, 93, 27);
+            /* background: rgb(164, 93, 27); */
+            overflow: hidden;
         }
 
         .section08 {
-            background: rgb(153, 42, 127);
+            /* background: rgb(153, 42, 127); */
         }
-
-        /* .box {
-            width: 200px;
-            height: 200px;
-            background-color: red;
-            position: absolute;
-            left: 50%;
-        } */
 
         .front_imgbox {
             width: 100%;
@@ -86,10 +161,25 @@
             transform: translateX(-50%);
         }
 
+        .front_imgbox2 {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            right: 0%;
+            top: 25%;
+            transform: translateX(50%);
+        }
+
         .front_img {
-            width: 33.2%;
+            width: 30.2%;
             height: 50%;
             object-fit: cover;
+            margin-right: 15px;
+        }
+
+        article {
+            width: 100%;
+            height: 100%;
         }
 
         .content {
@@ -100,6 +190,53 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
+        }
+
+        .content00,
+        .content01 {
+            position: absolute;
+            /* content들 position 설정 */
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .content00 {
+            z-index: 2;
+            /* 가장 먼저 보이는 content z-index 설정 */
+        }
+
+        .content01 {
+            z-index: 1;
+            /* 두 번째로 보이는 content z-index 설정 */
+            opacity: 0;
+            /* 처음에는 숨겨진 상태로 설정 */
+            transform: translateY(100%);
+            /* 아래로 숨겨진 상태로 설정 */
+        }
+
+        .content02 {
+            position: absolute;
+            /* content들 position 설정 */
+            top: 20%;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .content02>p {
+            margin-left: 380px;
         }
 
         h1 {
@@ -177,8 +314,8 @@
         }
 
         footer {
-            height: 9%;
             background-color: black;
+            z-index: 99;
         }
 
         .front_title>h1 {
@@ -204,10 +341,6 @@
             color: #fff;
         }
 
-        #counter {
-            color: #fff;
-        }
-
         .icon_bye {
             font-size: 20px;
             margin-left: 5px;
@@ -220,161 +353,228 @@
 </head>
 
 <body>
-    <section class="section01">
-        <div class="content01">
-            <h1>제목</h1>
-            <p>내용</p>
-        </div>
-    </section>
-    <section class="section02">
-        <div class="front_imgbox">
-            <img src="img/cat2.png" class="front_img" alt="이미지 설명">
-            <img src="img/cat.png" class="front_img" alt="이미지 설명">
-            <img src="img/cat2.png" class="front_img" alt="이미지 설명">
-        </div>
-        <div class="content02">
-            <h1>제목</h1>
-            <p>내용</p>
-        </div>
-    </section>
-    <section class="section03">
-        <div class="front_imgbox">
-            <img src="img/cat.png" class="front_img" alt="이미지 설명">
-            <img src="img/cat2.png" class="front_img" alt="이미지 설명">
-            <img src="img/cat.png" class="front_img" alt="이미지 설명">
-        </div>
-        <div class="content03">
-            <h1>제목</h1>
-            <p>내용</p>
-        </div>
-    </section>
-    <section class="section04">
-        <div class="front_imgbox">
-            <img src="img/cat.png" class="front_img" alt="이미지 설명">
-            <img src="img/cat2.png" class="front_img" alt="이미지 설명">
-            <img src="img/cat.png" class="front_img" alt="이미지 설명">
-        </div>
-        <div class="content04">
-            <h1>제목</h1>
-            <p>내용</p>
-        </div>
-    </section>
-    <section class="section05">
-        <div class="front_imgbox">
-            <img src="img/cat2.png" class="front_img" alt="이미지 설명">
-            <img src="img/cat.png" class="front_img" alt="이미지 설명">
-            <img src="img/cat2.png" class="front_img" alt="이미지 설명">
-        </div>
-        <div class="content05">
-            <h1>제목</h1>
-            <p>내용</p>
-        </div>
-    </section>
-    <section class="section06">
-        <div class="front_imgbox">
-            <img src="/img/cat.png" class="front_img" alt="이미지 설명">
-            <img src="img/cat2.png" class="front_img" alt="이미지 설명">
-            <img src="img/cat.png" class="front_img" alt="이미지 설명">
-        </div>
-        <div class="content06">
-            <h1>제목</h1>
-            <p>내용</p>
-        </div>
-    </section>
-    <section class="section07">
-        <div class="front_imgbox">
-            <img src="img/cat2.png" class="front_img" alt="이미지 설명">
-            <img src="img/cat.png" class="front_img" alt="이미지 설명">
-            <img src="img/cat2.png" class="front_img" alt="이미지 설명">
-        </div>
-        <div class="content07">
-            <h1>제목</h1>
-            <p>내용</p>
-        </div>
-    </section>
-    <section class="section08">
-        <div class="front_title">
-            <h1>함께 성장하고 싶습니다.</h1>
-        </div>
-    </section>
-    <section class="contact__wrap">
-        <div class="contact__title">
-            <h2>Contact Me</h2>
-            <div class="contact__info">
-                <div class="logo_img">
-                    <div class="logo_center"><img src="img/logo/kakaoicon.png" alt="Phone"></div>
-                    <div class="contact_effect">
-                        <p class="contact__text">010-2029-2827</p>
+    <header>
+        <header class="header" data-smooth-item="" style="transform: translate3d(0px, 0px, 0px);">
+            <nav class="nav" data-smooth-item="" style="transform: translate3d(0px, 0px, 0px);">
+                <a href="/" class="monument">ParkSungho</a>
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <button class="nav__btn" data-scroll-to="projects">Projects</button>
+                        <div class="nav__caption">
+                            <div class="nav__caption-inner">Best experiments</div>
+                        </div>
+                    </li>
+                    <li class="nav__item">
+                        <button class="nav__btn" data-scroll-to="about" data-cursor="expand">About me</button>
+
+                        <div class="nav__caption">
+                            <div class="nav__caption-inner">Sempai you said?</div>
+                        </div>
+                    </li>
+                    <li class="nav__item">
+                        <button class="nav__btn" data-scroll-to="contact" data-cursor="expand">Contact</button>
+
+                        <div class="nav__caption">
+                            <div class="nav__caption-inner">Let's together</div>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+    </header>
+    <article>
+        <section class="section01">
+            <div class="content00">
+                <h1>안녕하세요</h1>
+                <p>반갑습니다</p>
+            </div>
+            <div class="content01">
+                <h1>박성호</h1>
+                <p>WEB PUBLISHER / WEB DESIGNER PORTFOLIO SITE</p>
+            </div>
+        </section>
+        <section class="section02">
+            <div class="front_imgbox">
+                <img src="img/cat2.png" class="front_img" alt="이미지 설명">
+                <img src="img/cat.png" class="front_img" alt="이미지 설명">
+                <img src="img/cat2.png" class="front_img" alt="이미지 설명">
+            </div>
+            <div class="content02">
+                <h1>Bandal Cat </h1>
+                <p>Cat shop</p>
+            </div>
+        </section>
+        <section class="section03">
+            <div class="front_imgbox2">
+                <img src="img/cat.png" class="front_img" alt="이미지 설명">
+                <img src="img/cat2.png" class="front_img" alt="이미지 설명">
+                <img src="img/cat.png" class="front_img" alt="이미지 설명">
+            </div>
+            <div class="content03">
+                <h1>제목</h1>
+                <p>내용</p>
+            </div>
+        </section>
+        <section class="section04">
+            <div class="front_imgbox">
+                <img src="img/cat.png" class="front_img" alt="이미지 설명">
+                <img src="img/cat2.png" class="front_img" alt="이미지 설명">
+                <img src="img/cat.png" class="front_img" alt="이미지 설명">
+            </div>
+            <div class="content04">
+                <h1>제목</h1>
+                <p>내용</p>
+            </div>
+        </section>
+        <section class="section05">
+            <div class="front_imgbox2">
+                <img src="img/cat2.png" class="front_img" alt="이미지 설명">
+                <img src="img/cat.png" class="front_img" alt="이미지 설명">
+                <img src="img/cat2.png" class="front_img" alt="이미지 설명">
+            </div>
+            <div class="content05">
+                <h1>제목</h1>
+                <p>내용</p>
+            </div>
+        </section>
+        <section class="section06">
+            <div class="front_imgbox">
+                <img src="/img/cat.png" class="front_img" alt="이미지 설명">
+                <img src="img/cat2.png" class="front_img" alt="이미지 설명">
+                <img src="img/cat.png" class="front_img" alt="이미지 설명">
+            </div>
+            <div class="content06">
+                <h1>제목</h1>
+                <p>내용</p>
+            </div>
+        </section>
+        <section class="section07">
+            <div class="front_imgbox2">
+                <img src="img/cat2.png" class="front_img" alt="이미지 설명">
+                <img src="img/cat.png" class="front_img" alt="이미지 설명">
+                <img src="img/cat2.png" class="front_img" alt="이미지 설명">
+            </div>
+            <div class="content07">
+                <h1>제목</h1>
+                <p>내용</p>
+            </div>
+        </section>
+        <section class="section08">
+            <div class="front_title">
+                <h1>함께 성장하고 싶습니다.</h1>
+            </div>
+        </section>
+
+        <section class="contact__wrap">
+            <div class="contact__title">
+                <h2>Contact Me</h2>
+                <div class="contact__info">
+                    <div class="logo_img">
+                        <div class="logo_center"><img src="img/logo/kakaoicon.png" alt="Phone"></div>
+                        <div class="contact_effect">
+                            <p class="contact__text">010-2029-2827</p>
+                        </div>
+                    </div>
+                    <div class="logo_img">
+                        <a target="_blank"
+                            href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=nonckk@gmail.com">
+                            <div class="logo_center"><img src="img/logo/kakaoicon.png" alt="E-mail"></div>
+                            <div class="contact_effect"><span class="contact__text">nonckk@gmail.com</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="logo_img">
+                        <a target="_blank" href="https://open.kakao.com/o/sOpxvzef" class="contact__text">
+                            <div class="logo_center"><img src="img/logo/kakaoicon.png" alt="kakaotalk"></div>
+                            <div class="contact_effect"><span class="contact__text">Kakao Talk</span></div>
+                        </a>
+                    </div>
+                    <div class="logo_img">
+                        <a target="_blank" href="https://goo.gl/maps/a5yH7BQziUiueuLE9" class="contact__text">
+                            <div class="logo_center"><img src="img/logo/kakaoicon.png" alt="Residence"></div>
+                            <div class="contact_effect"><span class="contact__text">경기도 상록수</span></div>
+                        </a>
                     </div>
                 </div>
-                <div class="logo_img">
-                    <a target="_blank" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=nonckk@gmail.com">
-                        <div class="logo_center"><img src="img/logo/kakaoicon.png" alt="E-mail"></div>
-                        <div class="contact_effect"><span class="contact__text">nonckk@gmail.com</span>
-                        </div>
-                    </a>
-                </div>
-                <div class="logo_img">
-                    <a target="_blank" href="https://open.kakao.com/o/sOpxvzef" class="contact__text">
-                        <div class="logo_center"><img src="img/logo/kakaoicon.png" alt="kakaotalk"></div>
-                        <div class="contact_effect"><span class="contact__text">Kakao Talk</span></div>
-                    </a>
-                </div>
-                <div class="logo_img">
-                    <a target="_blank" href="https://goo.gl/maps/a5yH7BQziUiueuLE9" class="contact__text">
-                        <div class="logo_center"><img src="img/logo/kakaoicon.png" alt="Residence"></div>
-                        <div class="contact_effect"><span class="contact__text">경기도 상록수</span></div>
-                    </a>
-                </div>
+                <p class="contact__infotxt">저에 대해 더 궁금하신 내용이 있으면 언제든 연락 주세요&nbsp;&#58;&#41;</p>
             </div>
-            <p class="contact__infotxt">저에 대해 더 궁금하신 내용이 있으면 언제든 연락 주세요&nbsp;&#58;&#41;</p>
-        </div>
-    </section>
-    <footer>
-        <div class="footer_wrap">
-            <div class="content08">
-                <div><a target="_blank" href="https://github.com/Nubeez" class="github">GitHub</a>
+        </section>
+        <footer>
+            <div class="footer_wrap">
+                <div class="content08">
+                    <div><a target="_blank" href="https://github.com/Nubeez" class="github">GitHub</a>
+                    </div>
+                    <div class="footer_txt"><span>Thank you</span><span class="icon_bye">&#128075;</span>
+                    </div>
                 </div>
-                <div class="footer_txt"><span>Thank you</span><span class="icon_bye">&#128075;</span>
-                </div>
-            </div>
-    </footer>
+        </footer>
+    </article>
 </body>
 <!-- 스크립트 구간 -->
+
 <script>
     const sections = document.querySelectorAll("section");
     sections.forEach((section) => {
         const imgs = section.querySelectorAll(".front_img");
         const imgCount = imgs.length; // 추가된 변수
-        const content = section.querySelector(".content" + section.className.slice(7));
+        const content00 = section.querySelector(".content00");
+        const content01 = section.querySelector(".content01");
 
-        gsap.from(content, {
-            y: 100,
-            opacity: 0,
-            duration: 1,
-            delay: 0.5
-        });
+        if (content00) { // content00가 존재할 경우에만 gsap.to() 실행
+            gsap.to(content00, {
+                y: 0,
+                opacity: 0,
+                duration: 4
+            });
+        }
+
+        if (content01) { // content01이 존재할 경우에만 gsap.to() 실행
+            gsap.to(content01, {
+                y: 0,
+                opacity: 1,
+                duration: 3
+            });
+        }
+
         imgs.forEach((img, index) => {
             // 각 이미지의 위치를 중앙으로 맞추기 위해 사용됩니다.
             const offset = ((index - (imgCount - 1) / 2) / imgCount) * window.innerWidth * 0.2;
-            ScrollTrigger.create({
-                trigger: section,
-                start: "top bottom",
-                end: "bottom top",
-                markers: true,
-                scrub: true,
-                onUpdate: (self) => {
-                    imgs.forEach((img, index) => {
-                        const offset = ((3) / imgCount) * window.innerWidth * 0.2;
-                        console.log(offset)
-                        gsap.set(img, {
-                            x: (self.progress) * offset
+
+            // Section03, Section05, Section07은 왼쪽으로 이동합니다.
+            if (section.classList.contains("section03") || section.classList.contains("section05") || section.classList.contains("section07")) {
+                ScrollTrigger.create({
+                    trigger: section,
+                    start: "top bottom",
+                    end: "bottom top",
+                    scrub: true,
+                    onUpdate: (self) => {
+                        imgs.forEach((img, index) => {
+                            const offset = ((3) / imgCount) * window.innerWidth * 0.5;
+                            gsap.set(img, {
+                                x: -(self.progress) * offset // x 좌표값에 음수를 취해 이미지를 왼쪽으로 이동합니다.
+                            });
                         });
-                    });
-                }
-            });
+                    }
+                });
+            } else { // 나머지는 오른쪽으로 이동합니다.
+                ScrollTrigger.create({
+                    trigger: section,
+                    start: "top bottom",
+                    end: "bottom top",
+                    scrub: true,
+                    onUpdate: (self) => {
+                        imgs.forEach((img, index) => {
+                            const offset = ((3) / imgCount) * window.innerWidth * 0.5;
+                            gsap.set(img, {
+                                x: (self.progress) * offset // x 좌표값에 양수를 취해 이미지를 오른쪽으로 이동합니다.
+                            });
+                        });
+                    }
+                });
+            }
         });
     });
 </script>
+
 
 </html>
