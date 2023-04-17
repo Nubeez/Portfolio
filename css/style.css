@@ -488,6 +488,10 @@ body {
   font-family: "TheJamsil5Bold";
   color: #000;
 }
+a {
+  text-decoration: none;
+  color: #000;
+}
 
 .home_title_wrap {
   display: flex;
@@ -798,7 +802,7 @@ article {
 }
 
 h1 {
-  font-size: 6rem;
+  font-size: 5rem;
   margin: 0;
   padding: 0;
 }
