@@ -11,43 +11,62 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"></script>
     <!-- css -->
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/loading.css">
     <title>Document</title>
 </head>
 
 
 <body>
-    <!-- <div id="loading">로딩 중...</div> -->
-    <header>
-        <header class="header">
-            <nav class="nav" style="transform: translate3d(0px, 0px, 0px);">
-                <div class="home_title_wrap">
-                    <a href="#" class="monument">ParkSungho</a>
-                    <span>WEB DESIGNER PORTFOLIO SITE</span>
-                </div>
-                <ul class="nav__list">
-                    <li class="nav__item">
-                        <button class="nav__btn" onclick="scrollToSection2()">Projects</button>
-                        <div class="nav__caption">
-                            <div class="nav__caption-inner">포트폴리오입니다.</div>
-                        </div>
-                    </li>
-                    <li class="nav__item">
-                        <button class="nav__btn" onclick="scrollToSection1()">About me</button>
+    <div id="loading">
+        <div class="container">
+            <div class="dot dot-1"></div>
+            <div class="dot dot-2"></div>
+            <div class="dot dot-3"></div>
+        </div>
 
-                        <div class="nav__caption">
-                            <div class="nav__caption-inner">저를 소개합니다.</div>
-                        </div>
-                    </li>
-                    <li class="nav__item">
-                        <button class="nav__btn" onclick="scrollToSection3()">Contact</button>
+        <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+            <defs>
+                <filter id="goo">
+                    <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+                    <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 21 -7" />
+                </filter>
+            </defs>
+        </svg>
+    </div>
+    <div id="loading_wrap">
+        <div class="loading-left"></div>
+        <div class="loading-right"></div>
+    </div>
+    <header class="header">
+        <nav class="nav" style="transform: translate3d(0px, 0px, 0px);">
+            <div class="home_title_wrap">
+                <a href="#" class="monument" onclick="location.reload()">ParkSungho</a>
+                <span>WEB DESIGNER PORTFOLIO SITE</span>
+                <span>1920x1080 Optimize_Site</span>
+            </div>
+            <ul class="nav__list">
+                <li class="nav__item">
+                    <button class="nav__btn" onclick="scrollToSection2()">Projects</button>
+                    <div class="nav__caption">
+                        <div class="nav__caption-inner">포트폴리오입니다.</div>
+                    </div>
+                </li>
+                <li class="nav__item">
+                    <button class="nav__btn" onclick="scrollToSection1()">About me</button>
 
-                        <div class="nav__caption">
-                            <div class="nav__caption-inner">Let's together</div>
-                        </div>
-                    </li>
-                </ul>
-            </nav>
-        </header>
+                    <div class="nav__caption">
+                        <div class="nav__caption-inner">저를 소개합니다.</div>
+                    </div>
+                </li>
+                <li class="nav__item">
+                    <button class="nav__btn" onclick="scrollToSection3()">Contact</button>
+
+                    <div class="nav__caption">
+                        <div class="nav__caption-inner">Let's together</div>
+                    </div>
+                </li>
+            </ul>
+        </nav>
     </header>
     <article>
         <section id="section01">
@@ -57,30 +76,37 @@
             </div>
             <div class="content01">
                 <h1></h1>
-                <p>WEB PUBLISHER</p>
+                <p>WEB FrontEnd Developer</p>
                 <div class="mouse_wheel"></div>
                 <div class="arrow_down"></div>
                 <div class="arrow_down2"></div>
             </div>
         </section>
         <section id="section02">
-            <div class="front_imgbox">
+            <div class="front_imgbox_about">
                 <img src="img/cat2.png" class="front_img Profile" alt="이미지 설명">
             </div>
             <div class="content02">
                 <h2 class="typing"></h2><br>
-                <p>신입 웹퍼블리셔 박성호입니다.</p>
+                <p>신입 프론트엔드 개발자</p>
+                <p>박성호입니다.</p>
                 <span>저는 이런걸 할줄압니다.</span>
                 <div class="skill_wrap">
                     <div class="row">
-                        <img src="img/logo/html.png" alt="">
-                        <img src="img/logo/css.png" alt="">
-                        <img src="img/logo/js.png" alt="">
+                        <img src="img/logo/html.png" alt="html">
+                        <img src="img/logo/css.png" alt="css">
+                        <img src="img/logo/js.png" alt="JAVASCRIPT">
+                        <img src="img/logo/sass.png" alt="sass">
                     </div>
                     <div class="row">
-                        <img src="img/logo/jquery.png" alt="">
-                        <img src="img/logo/photoshop-6.png" alt="">
-                        <img src="img/logo/illustrator-1.png" alt="">
+                        <img src="img/logo/jquery.png" alt="jquery">
+                        <img src="img/logo/react.png" alt="react">
+                    </div>
+                    <div class="row">
+                        <img src="img/logo/figma.png" alt="photoshop">
+                        <img src="img/logo/github.png" alt="photoshop">
+                        <img src="img/logo/photoshop-6.png" alt="photoshop">
+                        <img src="img/logo/illustrator-1.png" alt="illustrator">
                     </div>
                 </div>
             </div>
@@ -96,9 +122,11 @@
                 <img src="project_img/One/one_02.png" class="front_img" alt="이미지 설명">
             </div>
             <div class="content03">
-                <h1>Bandal Cats</h1>
-                <p>Cats Shop</p>
-                <span>HTML / CSS / JQUERY</span>
+                <div class="blurry-text">
+                    <h1>Bandal</h1>
+                    <p>Cats Store</p>
+                    <span>HTML / CSS / JQUERY</span>
+                </div>
             </div>
         </section>
         <section id="section04">
@@ -108,9 +136,11 @@
                 <img src="project_img/Two/two.png" class="front_img" alt="이미지 설명">
             </div>
             <div class="content04">
-                <h1>Mae:il</h1>
-                <p>Restaurant</p>
-                <span>HTML / CSS / JQUERY</span>
+                <div class="blurry-text">
+                    <h1>Mae:il</h1>
+                    <p>Restaurant</p>
+                    <span>HTML / CSS / JQUERY</span>
+                </div>
             </div>
         </section>
         <section id="section05">
@@ -120,10 +150,12 @@
                 <img src="project_img/Three/three_02.png" class="front_img" alt="이미지 설명">
             </div>
             <div class="content05">
-                <h1>PALAU</h1>
-                <p>Travel Website</p>
-                <span>HTML / CSS / JQUERY / JAVASCRIPT</span>
-                <span>메인페이지 담당</span>
+                <div class="blurry-text">
+                    <h1>PALAU</h1>
+                    <p>Travel Website</p>
+                    <span>HTML / CSS / JQUERY / JAVASCRIPT</span>
+                    <span>메인페이지 담당</span>
+                </div>
             </div>
         </section>
         <section id="section06">
@@ -133,10 +165,12 @@
                 <img src="project_img/Four/four.png" class="front_img" alt="이미지 설명">
             </div>
             <div class="content06">
-                <h1>KakaoPage</h1>
-                <p>book Store</p>
-                <span>HTML / CSS / JQUERY / JAVASCRIPT</span>
-                <span>오픈 API / 클론 코딩</span>
+                <div class="blurry-text">
+                    <h1>KakaoPage</h1>
+                    <p>book Store</p>
+                    <span>HTML / CSS / JQUERY / JAVASCRIPT / Ajax / Json</span>
+                    <span>오픈 API / 클론 코딩</span>
+                </div>
             </div>
         </section>
         <section id="section07">
@@ -146,9 +180,11 @@
                 <img src="project_img/Five/five_02.png" class="front_img" alt="이미지 설명">
             </div>
             <div class="content07">
-                <h1>Adidas</h1>
-                <p>Sport Wear Shop</p>
-                <span>React</span>
+                <div class="blurry-text">
+                    <h1>Adidas</h1>
+                    <p>Sport Wear Shop</p>
+                    <span>React</span>
+                </div>
             </div>
         </section>
         <section id="section08">
