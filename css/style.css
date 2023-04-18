@@ -520,6 +520,7 @@ a {
   text-decoration: none;
   color: #333;
   padding-left: 25px;
+  padding-top: 25px;
 }
 
 .header .nav {
@@ -537,7 +538,7 @@ a {
 }
 
 .header .nav__list {
-  height: 50px;
+  height: 25px;
   display: flex;
   justify-content: flex-end;
   align-items: center;

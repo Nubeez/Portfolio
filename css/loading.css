@@ -31,8 +31,8 @@
   top: 0;
   height: 100%;
   background-color: #000;
-  animation-duration: 0.8s;
-  animation-delay: 5.5s; /* 자바스에서 로딩창 딜레이 +0.5 맞춰야함 */
+  animation-duration: 1s;
+  animation-delay: 3.4s; /* 자바스에서 로딩창 딜레이 +0.5 맞춰야함 */
 }
 
 .loading-left {
