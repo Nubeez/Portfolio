@@ -17,29 +17,35 @@ sections.forEach((section) => {
     // 로딩창 요소 애니메이션 효과 추가
     gsap.to(loading, {
       opacity: 0,
-      delay: 5, // 5초 후에 로딩창을 제거합니다. , loading의 딜레이랑 동일하게
+      delay: 3, //로딩 딜레이 3초
       duration: 0.5,
       onComplete: function () {
         // 애니메이션 완료 후 로딩창 요소 제거
-        loading.parentNode.removeChild(loading);
+        if (loading && loading.parentNode) {
+          loading.parentNode.removeChild(loading);
+        }
 
         // 배경 애니메이션 시작
         const loadingWrap = document.getElementById("loading_wrap");
-        const loadingLeft = document.querySelector(".loading-left");
-        const loadingRight = document.querySelector(".loading-right");
+        if (loadingWrap) {
+          const loadingLeft = document.querySelector(".loading-left");
+          const loadingRight = document.querySelector(".loading-right");
 
-        loadingWrap.addEventListener("animationend", function () {
-          // 애니메이션 완료 후 로딩창 배경 요소 제거
-          loadingWrap.parentNode.removeChild(loadingWrap);
-        });
+          loadingWrap.addEventListener("animationend", function () {
+            // 애니메이션 완료 후 로딩창 배경 요소 제거
+            if (loadingWrap.parentNode) {
+              loadingWrap.parentNode.removeChild(loadingWrap);
+            }
+          });
 
-        loadingLeft.addEventListener("animationend", function () {
-          // 왼쪽 배경 애니메이션이 끝난 후 오른쪽 배경 애니메이션 시작
-          loadingRight.style.animationDelay = "0s";
-        });
+          loadingLeft.addEventListener("animationend", function () {
+            // 왼쪽 배경 애니메이션이 끝난 후 오른쪽 배경 애니메이션 시작
+            loadingRight.style.animationDelay = "0s";
+          });
 
-        // body 요소의 overflow 값을 원래대로 돌려놓습니다.
-        document.body.style.overflow = originalOverflow;
+          // 로딩창이 완전히 사라진 후 body 요소의 overflow 값을 원래대로 돌려놓습니다.
+        }
+        document.body.style.overflow = "visible"; // overflow 스타일 값 변경
       },
     });
   }
@@ -66,7 +72,7 @@ sections.forEach((section) => {
         duration: 2,
       });
     }
-  }, 6500 /* 인트로,로딩 끝나고 6.5초로 딜레이 맞춤 실행 */);
+  }, 4500 /* 인트로,로딩 끝나고 4.5초로 딜레이 맞춤 실행 */);
 
   // section08 하단 텍스트
   gsap.fromTo(

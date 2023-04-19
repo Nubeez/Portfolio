@@ -1,18 +1,176 @@
 #loading {
+  background-color: #000000;
+  height: 100%;
+  width: 100%;
   position: fixed;
-  top: 0;
-  left: 0;
+  z-index: 1;
+  margin-top: 0px;
+  top: 0px;
+  z-index: 999;
+  display: block;
+}
+
+.loadding-page {
   width: 100%;
   height: 100%;
-  background-color: #000;
-  z-index: 100;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background-image: url(../img/loading/loading.png);
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  z-index: 99;
+}
+.cssload-box-loading {
+  width: 56px;
+  height: 0px;
+  margin: auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+.loading_wait {
+  width: 56px;
+  height: 0px;
+  margin: auto;
+  position: absolute;
+  left: 48.2%;
+  top: 41%;
+  transform: translate(-50%, -50%);
   color: #fff;
-  font-size: 24px;
+  font-size: 26pt;
   font-weight: bold;
 }
+.loading_wait::after {
+  content: ".";
+  width: 56px;
+  height: 0px;
+  margin: auto;
+  position: absolute;
+  left: 155px;
+  top: 5px;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-size: 26pt;
+  font-weight: bold;
+  animation: dot 2.5s linear infinite;
+}
+.cssload-box-loading:before {
+  content: "";
+  width: 49px;
+  height: 5px;
+  background: #ffffff;
+  opacity: 0.3;
+  position: absolute;
+  top: 58px;
+  left: 0;
+  border-radius: 50%;
+  animation: shadow 3s linear infinite;
+}
+.cssload-box-loading:after {
+  content: "";
+  width: 56px;
+  height: 57px;
+  background-image: url(../img/loading/loading.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  z-index: 10;
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  border-radius: 50%;
+  animation: cssload-animate 3s linear infinite;
+}
+@keyframes cssload-animate {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  5% {
+    transform: translateY(9px) rotate(18deg);
+  }
+  10% {
+    transform: translateY(18px) rotate(36deg);
+  }
+  15% {
+    transform: translateY(27px) rotate(54deg);
+  }
+  20% {
+    transform: translateY(36px) rotate(72deg);
+  }
+  25% {
+    transform: translateY(45px) scale(1, 0.9) rotate(90deg);
+  }
+  30% {
+    transform: translateY(36px) rotate(108deg);
+  }
+  35% {
+    transform: translateY(27px) rotate(126deg);
+  }
+  40% {
+    transform: translateY(18px) rotate(144deg);
+  }
+  45% {
+    transform: translateY(9px) rotate(162deg);
+  }
+  50% {
+    transform: translateY(0px) rotate(180deg);
+  }
+  55% {
+    transform: translateY(9px) rotate(198deg);
+  }
+  60% {
+    transform: translateY(18px) rotate(216deg);
+  }
+  65% {
+    transform: translateY(27px) rotate(234deg);
+  }
+  70% {
+    transform: translateY(36px) rotate(252deg);
+  }
+  75% {
+    transform: translateY(45px) scale(1, 0.9) rotate(270deg);
+  }
+  80% {
+    transform: translateY(36px) rotate(288deg);
+  }
+  85% {
+    transform: translateY(27px) rotate(306deg);
+  }
+  90% {
+    transform: translateY(18px) rotate(324deg);
+  }
+  95% {
+    transform: translateY(9px) rotate(342deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(360deg);
+  }
+}
+
+@keyframes shadow {
+  0%,
+  100% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(1.2, 1);
+  }
+}
+@keyframes dot {
+  0% {
+    content: ".";
+  }
+  33% {
+    content: "..";
+  }
+  66% {
+    content: "...";
+  }
+  100% {
+    content: ".";
+  }
+}
+/* 양쪽으로 슬라이드 열리는 효과 */
 #loading_wrap {
   position: fixed;
   top: 0;
@@ -31,8 +189,8 @@
   top: 0;
   height: 100%;
   background-color: #000;
-  animation-duration: 0.8s;
-  animation-delay: 5.5s; /* 자바스에서 로딩창 딜레이 +0.5 맞춰야함 */
+  animation-duration: 1s;
+  animation-delay: 3.2s; /* 자바스에서 로딩창 딜레이 +0.5 맞춰야함 */
 }
 
 .loading-left {

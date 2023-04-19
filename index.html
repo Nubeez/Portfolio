@@ -9,29 +9,41 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/ScrollToPlugin.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.js"
+        integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+    <!-- favicon -->
+    <link rel="shortcut icon" href="favicon/favicon.ico"> <!--추가-->
+    <link rel="apple-touch-icon" sizes="57x57" href="favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="transparent">
+    <meta name="msapplication-TileImage" content="favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="transparent">
     <!-- css -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/loading.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="css/svg.css">
+    <link rel="stylesheet" href="css/effect_style.css">
+    <title>박성호 PORTFOLIO</title>
 </head>
-
 
 <body>
     <div id="loading">
-        <div class="container">
-            <div class="dot dot-1"></div>
-            <div class="dot dot-2"></div>
-            <div class="dot dot-3"></div>
+        <div class="cssload-box-loading"></div>
+        <div class="loading_wait">
+            <span>loading</span>
         </div>
-
-        <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
-            <defs>
-                <filter id="goo">
-                    <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
-                    <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 21 -7" />
-                </filter>
-            </defs>
-        </svg>
     </div>
     <div id="loading_wrap">
         <div class="loading-left"></div>
@@ -40,9 +52,9 @@
     <header class="header">
         <nav class="nav" style="transform: translate3d(0px, 0px, 0px);">
             <div class="home_title_wrap">
-                <a href="#" class="monument" onclick="location.reload()">ParkSungho</a>
-                <span>WEB DESIGNER PORTFOLIO SITE</span>
+                <a href="#" class="monument" onclick="location.reload()">&#60;Home&#62;</a>
                 <span>1920x1080 Optimize_Site</span>
+                <span>WEB DESIGNER PORTFOLIO SITE</span>
             </div>
             <ul class="nav__list">
                 <li class="nav__item">
@@ -71,12 +83,10 @@
     <article>
         <section id="section01">
             <div class="content00">
-                <h1>안녕하세요</h1>
-                <p>반갑습니다</p>
+                <p>WEB FrontEnd Developer</p>
             </div>
             <div class="content01">
-                <h1></h1>
-                <p>WEB FrontEnd Developer</p>
+                <h1>&#60;Start&#62;</h1>
                 <div class="mouse_wheel"></div>
                 <div class="arrow_down"></div>
                 <div class="arrow_down2"></div>
@@ -84,13 +94,13 @@
         </section>
         <section id="section02">
             <div class="front_imgbox_about">
-                <img src="img/cat2.png" class="front_img Profile" alt="이미지 설명">
+                <img src="img/profile_cat.jpg" class="front_img Profile" alt="Profile">
             </div>
             <div class="content02">
                 <h2 class="typing"></h2><br>
                 <p>신입 프론트엔드 개발자</p>
                 <p>박성호입니다.</p>
-                <span>저는 이런걸 할줄압니다.</span>
+                <span>TECHNICAL SKILL</span>
                 <div class="skill_wrap">
                     <div class="row">
                         <img src="img/logo/html.png" alt="html">
@@ -171,8 +181,7 @@
                 <img src="project_img/Four/four.png" class="front_img" alt="4th_Project3">
             </div>
             <div class="content06">
-                <a href="https://nubeez.github.io/project_4/" target="_blank"
-                    rel="noopener noreferrer">
+                <a href="https://nubeez.github.io/project_4/" target="_blank" rel="noopener noreferrer">
                     <div class="blurry-text">
                         <h1>KakaoPage</h1>
                         <p>book Store</p>
@@ -189,8 +198,7 @@
                 <img src="project_img/Five/five_02.png" class="front_img" alt="5th_Project3">
             </div>
             <div class="content07">
-                <a href="https://nubeez.github.io/project_5/" target="_blank"
-                    rel="noopener noreferrer">
+                <a href="https://nubeez.github.io/project_5/" target="_blank" rel="noopener noreferrer">
                     <div class="blurry-text">
                         <h1>Adidas</h1>
                         <p>Sport Wear Shop</p>
@@ -200,11 +208,18 @@
             </div>
         </section>
         <section id="section08">
+            <!-- STAR ANIMATION -->
+            <div class="bg-animation">
+                <div id='stars'></div>
+                <div id='stars2'></div>
+                <div id='stars3'></div>
+                <div id='stars4'></div>
+            </div>
+            <!-- / STAR ANIMATION -->
             <div class="front_title">
                 <h1>함께 성장하고 싶습니다.</h1>
             </div>
         </section>
-
         <section id="contact__wrap">
             <div class="contact__title">
                 <h2>Contact Me</h2>
@@ -238,6 +253,7 @@
                 </div>
                 <p class="contact__infotxt">저에 대해 더 궁금하신 내용이 있으면 언제든 연락 주세요&nbsp;&#58;&#41;</p>
             </div>
+            <div class="copyright">Copyright : Freepik</div>
         </section>
         <footer>
             <div class="footer_wrap">
