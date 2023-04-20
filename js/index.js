@@ -5,7 +5,12 @@ sections.forEach((section) => {
   const content00 = section.querySelector(".content00");
   const content01 = section.querySelector(".content01");
   const text = section.querySelector(".front_title");
-
+  //다른탭으로 이동 시 JavaScript 코드가 로딩 창을 끝내기 전에
+  // 이미 실행되고 있기 때문에 error발생
+  // 아래 코드는 윈도우 로드 후 실행되게 바꿈
+  window.onload = function () {
+    hideLoading();
+  };
   //   intro 로딩창
   function hideLoading() {
     const loading = document.getElementById("loading");
@@ -42,9 +47,8 @@ sections.forEach((section) => {
             // 왼쪽 배경 애니메이션이 끝난 후 오른쪽 배경 애니메이션 시작
             loadingRight.style.animationDelay = "0s";
           });
-
-          // 로딩창이 완전히 사라진 후 body 요소의 overflow 값을 원래대로 돌려놓습니다.
         }
+        // 로딩창이 완전히 사라진 후 body 요소의 overflow 값을 원래대로 돌려놓습니다.
         document.body.style.overflow = "visible"; // overflow 스타일 값 변경
       },
     });
@@ -52,6 +56,17 @@ sections.forEach((section) => {
 
   // 모든 리소스가 로드된 후 로딩창 숨기는 코드
   window.addEventListener("load", hideLoading);
+
+  // error 다른탭으로 이동 시 loading_wrap이 삭제가 안되는 부분이있다
+  // 아래 코드는 그걸 대비하여 스크롤을 내리면 삭제되게 구현했다.
+  $(window).scroll(function () {
+    const scroll = $(document).scrollTop();
+
+    //스크롤이 150px 미만이면 #loading_wrap 요소를 삭제합니다.
+    if (scroll < 50) {
+      $("#loading_wrap").remove();
+    }
+  });
 
   //인트로 이후 메인 인삿말
   setInterval(function () {
@@ -179,3 +194,19 @@ function scrollToSection3() {
     behavior: "smooth",
   });
 }
+// top버튼 스크립트
+window.addEventListener("scroll", function () {
+  var btn = document.querySelector(".Top_btn");
+  var section01 = document.querySelector("#section01");
+  var section02 = document.querySelector("#section02");
+
+  if (window.pageYOffset > section01.offsetHeight) {
+    btn.style.display = "block";
+  } else {
+    btn.style.display = "none";
+  }
+  btn.addEventListener("click", function () {
+    // 페이지 맨 위로 스크롤 이동
+    window.scrollTo({top: 0, behavior: "smooth"});
+  });
+});

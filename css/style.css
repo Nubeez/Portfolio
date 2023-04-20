@@ -630,7 +630,7 @@ a {
 
 section {
   width: 100%;
-  height: 100%;
+  height: 100vh; /* 화면 전체 높이로 설정 */
   position: relative;
   display: flex;
   justify-content: center;
@@ -722,7 +722,6 @@ article {
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 20px;
 }
 
 .content00 {
@@ -739,10 +738,21 @@ article {
   /* 아래로 숨겨진 상태로 설정 */
 }
 
-.content02 > span {
+.skill_title {
   margin: 35px 0;
   font-size: 16pt;
 }
+
+.about_me {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 10px;
+}
+.font_small {
+  font-size: 1rem;
+}
+
 .content04,
 .content06 {
   position: absolute;
@@ -755,7 +765,9 @@ article {
   align-items: flex-end;
   padding: 20px;
 }
-
+.position_value {
+  right: 5%;
+}
 .content04 p,
 .content06 p,
 .content04 span,
@@ -787,8 +799,8 @@ article {
   padding-left: 5px;
 }
 .row > img {
-  width: 13%;
-  margin: 30px;
+  width: 8%;
+  margin: 12px;
 }
 .project_title {
   position: absolute;
@@ -866,7 +878,9 @@ footer {
   z-index: 99;
 }
 
-.front_title > h1 {
+.front_title > h1,
+.front_title > h2 {
+  text-align: center;
   color: transparent;
   -webkit-text-stroke: 2px #fff;
 }
