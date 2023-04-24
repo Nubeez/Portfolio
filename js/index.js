@@ -5,9 +5,7 @@ sections.forEach((section) => {
   const content00 = section.querySelector(".content00");
   const content01 = section.querySelector(".content01");
   const text = section.querySelector(".front_title");
-  //다른탭으로 이동 시 JavaScript 코드가 로딩 창을 끝내기 전에
-  // 이미 실행되고 있기 때문에 error발생
-  // 아래 코드는 윈도우 로드 후 실행되게 바꿈
+
   window.onload = function () {
     hideLoading();
   };
@@ -15,8 +13,8 @@ sections.forEach((section) => {
   function hideLoading() {
     const loading = document.getElementById("loading");
     // 로딩창 요소 가져오기
-    const originalOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
+    // const originalOverflow = document.body.style.overflow;
+    // document.body.style.overflow = "hidden";
     // body 요소에 overflow: hidden 스타일을 추가하여 스크롤을 막습니다.
 
     // 로딩창 요소 애니메이션 효과 추가
@@ -48,7 +46,7 @@ sections.forEach((section) => {
             loadingRight.style.animationDelay = "0s";
           });
         }
-        // 로딩창이 완전히 사라진 후 body 요소의 overflow 값을 원래대로 돌려놓습니다.
+        // 로딩창이 완전히 사라진 후 body 요소의 overflow 값을 원래대로.
         document.body.style.overflow = "visible"; // overflow 스타일 값 변경
       },
     });
@@ -58,7 +56,7 @@ sections.forEach((section) => {
   window.addEventListener("load", hideLoading);
 
   // error 다른탭으로 이동 시 loading_wrap이 삭제가 안되는 부분이있다
-  // 아래 코드는 그걸 대비하여 스크롤을 내리면 삭제되게 구현했다.
+  // 아래 코드는 그걸 대비하여 스크롤을 내리면 삭제되게 구현
   $(window).scroll(function () {
     const scroll = $(document).scrollTop();
 
@@ -113,7 +111,7 @@ sections.forEach((section) => {
     const offset = ((index - (imgCount - 1) / 2) / imgCount) * window.innerWidth * 0.2;
 
     // Section03, Section05, Section07은 왼쪽으로 이동합니다.
-    if (section.id === "section03" || section.id === "section05" || section.id === "section07") {
+    if (section.id === "section02") {
       ScrollTrigger.create({
         trigger: section,
         start: "top bottom",
@@ -123,23 +121,7 @@ sections.forEach((section) => {
           imgs.forEach((img, index) => {
             const offset = (3 / imgCount) * window.innerWidth * 0.6;
             gsap.set(img, {
-              x: -self.progress * offset, // x 좌표값에 음수를 취해 이미지를 왼쪽으로 이동합니다.
-            });
-          });
-        },
-      });
-    } else {
-      // 나머지는 오른쪽으로 이동합니다.
-      ScrollTrigger.create({
-        trigger: section,
-        start: "top bottom",
-        end: "bottom top",
-        scrub: true,
-        onUpdate: (self) => {
-          imgs.forEach((img, index) => {
-            const offset = (3 / imgCount) * window.innerWidth * 0.6;
-            gsap.set(img, {
-              x: self.progress * offset, // x 좌표값에 양수를 취해 이미지를 오른쪽으로 이동합니다.
+              x: +self.progress * offset, // x 좌표값에 음수를 취해 이미지를 왼쪽으로 이동합니다.
             });
           });
         },
@@ -147,7 +129,7 @@ sections.forEach((section) => {
     }
   });
 });
-// 스크롤이 section02에 도달하면 애니메이션을 실행합니다.
+// 스크롤이 section02에 도달하면 타이핑 애니메이션을 실행합니다.
 const content02 = document.querySelector(".content02");
 const typing = document.querySelector(".typing");
 
@@ -210,3 +192,125 @@ window.addEventListener("scroll", function () {
     window.scrollTo({top: 0, behavior: "smooth"});
   });
 });
+
+// 슬라이드 시작
+$(function () {
+  var $slider = $(".portfolio_img_list"),
+    $firstSlide = $slider
+      .find("li")
+      .first() // 첫번째 슬라이드
+      .stop(true)
+      .animate({opacity: 1}, 200); // 첫번째 슬라이드만 보이게 하기
+
+  function AutoSlide() {
+    stopSlide();
+    startSlide(); //타이머 초기화
+    $firstSlide = $slider
+      .find("li")
+      .first() // 첫 번째 슬라이드
+      .appendTo($slider); // 맨 마지막으로 보내기
+    var $lastSlide = $slider
+      .find("li")
+      .last() // 맨 마지막으로 보낸 슬라이드
+      .stop(true)
+      .animate({opacity: 0}, 400); // fadeOut시키기
+    $firstSlide = $slider
+      .find("li")
+      .first() // 맨 처음 슬라이드
+      .stop(true)
+      .animate({opacity: 1}, 400); // fadeIn 시키기
+  }
+
+  startSlide(); // 자동 슬라이드 시작
+
+  var theInterval;
+
+  function startSlide() {
+    theInterval = setInterval(AutoSlide, 2500); //자동 슬라이드 설정
+  }
+
+  function stopSlide() {
+    //자동 멈추기
+    clearInterval(theInterval);
+  }
+
+  $(".portfolio_img_list").hover(
+    function () {
+      //마우스 오버시 슬라이드 멈춤
+      stopSlide();
+    },
+    function () {
+      startSlide();
+    }
+  );
+});
+
+function btn(clickedDiv) {
+  // 클릭된 div 요소의 id 값을 가져옴
+  var id = clickedDiv.id;
+
+  // id 값에 따라 다른 동작을 수행
+  switch (id) {
+    case "info_menu_0":
+      $(document).ready(function () {
+        $("li img").each(function (index) {
+          var newSrc = "project_img/One/one" + "_" + (index + 1) + ".png";
+          $(this).attr("src", newSrc);
+          // content_01 div 보이도록 변경
+          $(".content_01").css("display", "inline-flex");
+          // 나머지 content div는 숨김
+          $(".content_02, .content_03, .content_04, .content_05, .content_06").css("display", "none");
+        });
+      });
+      break;
+    case "info_menu_1":
+      console.log("두 번째 버튼 클릭");
+      // 버튼으로 이미지 src 변경
+      $(document).ready(function () {
+        $("li img").each(function (index) {
+          var newSrc = "project_img/Two/two" + "_" + (index + 1) + ".png";
+          $(this).attr("src", newSrc);
+          // content_02 div 보이도록 변경
+          $(".content_02").css("display", "inline-flex");
+          // 나머지 content div는 숨김
+          $(".content_01, .content_03, .content_04, .content_05, .content_06").css("display", "none");
+        });
+      });
+      break;
+    case "info_menu_2":
+      $(document).ready(function () {
+        $("li img").each(function (index) {
+          var newSrc = "project_img/Three/three" + "_" + (index + 1) + ".png";
+          $(this).attr("src", newSrc); // content_01 div 보이도록 변경
+          $(".content_03").css("display", "inline-flex");
+          // 나머지 content div는 숨김
+          $(".content_01, .content_02, .content_04, .content_05, .content_06").css("display", "none");
+        });
+      });
+      break;
+    case "info_menu_3":
+      $(document).ready(function () {
+        $("li img").each(function (index) {
+          var newSrc = "project_img/Four/four" + "_" + (index + 1) + ".png";
+          $(this).attr("src", newSrc); // content_01 div 보이도록 변경
+          $(".content_04").css("display", "inline-flex");
+          // 나머지 content div는 숨김
+          $(".content_01, .content_02, .content_03, .content_05, .content_06").css("display", "none");
+        });
+      });
+      break;
+    case "info_menu_4":
+      $(document).ready(function () {
+        $("li img").each(function (index) {
+          var newSrc = "project_img/Five/five" + "_" + (index + 1) + ".png";
+          $(this).attr("src", newSrc); // content_01 div 보이도록 변경
+          $(".content_05").css("display", "inline-flex");
+          // 나머지 content div는 숨김
+          $(".content_01, .content_02, .content_03, .content_04, .content_06").css("display", "none");
+        });
+      });
+      break;
+    default:
+      console.log("잘못된 버튼 클릭");
+  }
+}

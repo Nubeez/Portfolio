@@ -478,7 +478,11 @@
   }
 }
 /* 모바일 사이즈 끝 */
-
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 html,
 body {
   height: 100%;
@@ -651,37 +655,202 @@ section {
   position: relative;
 }
 
+/* grid */
 #section03 {
   background: rgb(255, 250, 245);
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+#info_frame_wrap {
+  width: 80%;
+  height: 80%;
+  display: grid;
+  grid-template-rows: repeat(1, 1fr);
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.info_frame {
+  position: relative;
+}
+.img_portfolio {
+  width: 105%;
+  height: 100%;
+  display: flex;
+}
+
+.slider-container {
+  position: relative;
+  overflow: hidden;
+  width: 95.5%;
+  height: 102%;
+}
+
+.portfolio_img_list {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 300%;
+  margin: 0;
+  padding: 0;
+  transition: all 0.5s ease-in-out; /* 이 부분만 수정하였습니다. */
+  list-style: none;
+}
+
+.portfolio_img_list li {
+  position: relative;
+  display: inline-block; /* float 속성을 제거하였습니다. */
+  width: 33.33%;
+  opacity: 0;
+}
+
+.portfolio_img_list li img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 9%;
+  box-shadow: 0 0 147px rgb(255 250 245);
+}
+.portfolio_img_list li::after {
+  content: "";
+}
+
+.portfolio_img_list li:hover::after {
+  content: "Click";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 9%;
+  color: #fff;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  z-index: 99;
+}
+.info_text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+table {
+  width: 100%;
+  padding-top: 30px;
+  border-top: 2px solid;
+}
+th {
+  text-align: left;
+  padding: 5px;
+}
+td {
+  float: right;
+  padding: 5px;
+}
+.deteail-content {
+  font-size: 1rem;
+  padding: 7px;
+}
+.deteail-content-wrap {
+  padding-top: 10%;
+  padding-left: 10%;
+}
+.btn_content {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.content_02 {
+  display: none;
+}
+.content_03 {
+  display: none;
+}
+.content_04 {
+  display: none;
+}
+.content_05 {
+  display: none;
+}
+.content_06 {
+  display: none;
+}
+.info_menu {
+  grid-column: span 1;
+}
+.info_menu_line {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+button {
+  margin: 20px;
+}
+.custom-btn {
+  width: 130px;
+  height: 40px;
+  color: #fff;
+  border-radius: 5px;
+  padding: 10px 25px;
+  font-family: "Lato", sans-serif;
+  font-weight: 500;
+  background: #f2e2e1;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5), 7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
+  outline: none;
+  font-size: 9pt;
+}
+/* 16 */
+.btn-16 {
+  border: none;
+  color: #000;
+}
+.btn-16:after {
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 100%;
+  top: 0;
+  left: 0;
+  direction: rtl;
+  z-index: 0;
+  box-shadow: -7px -7px 20px 0px #fff9, -4px -4px 5px 0px #fff9, 7px 7px 20px 0px #0002, 4px 4px 5px 0px #0001;
+  transition: all 0.3s ease;
+}
+.btn-16:hover {
+  color: #000;
+}
+.btn-16:hover:after {
+  left: auto;
+  right: 0;
+  width: 100%;
+}
+.btn-16:active {
+  top: 2px;
 }
 
 #section04 {
-  background: rgb(255, 250, 245);
-  overflow: hidden;
-}
-
-#section05 {
-  background: rgb(255, 250, 245);
-  overflow: hidden;
-}
-
-#section06 {
-  background: rgb(255, 250, 245);
-  overflow: hidden;
-}
-
-#section07 {
-  background: rgb(255, 250, 245);
-  overflow: hidden;
-}
-
-#section08 {
   background: #000;
   height: 60%;
   overflow: hidden;
 }
-
+.bg-animation {
+  position: absolute;
+  left: 0;
+}
 .first_img {
   width: 100%;
 }
@@ -728,7 +897,6 @@ article {
   z-index: 2;
   /* 가장 먼저 보이는 content z-index 설정 */
 }
-
 .content01 {
   z-index: 1;
   /* 두 번째로 보이는 content z-index 설정 */
@@ -737,7 +905,44 @@ article {
   transform: translateY(100%);
   /* 아래로 숨겨진 상태로 설정 */
 }
+.content04 {
+  position: absolute;
+  top: 20%;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 20px;
+}
 
+.content04 p,
+.content04 span {
+  padding-right: 5px;
+}
+.content03 {
+  position: absolute;
+  top: 20%;
+  left: 0;
+  right: inherit;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+}
+.position_value {
+  right: 5%;
+}
+.content03 p {
+  padding-left: 5px;
+}
+.row > img {
+  width: 8%;
+  margin: 12px;
+}
 .skill_title {
   margin: 35px 0;
   font-size: 16pt;
@@ -751,68 +956,6 @@ article {
 }
 .font_small {
   font-size: 1rem;
-}
-
-.content04,
-.content06 {
-  position: absolute;
-  top: 20%;
-  right: 0;
-  bottom: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-end;
-  padding: 20px;
-}
-.position_value {
-  right: 5%;
-}
-.content04 p,
-.content06 p,
-.content04 span,
-.content06 span {
-  padding-right: 5px;
-}
-
-.content03,
-.content05,
-.content07 {
-  position: absolute;
-  top: 20%;
-  left: 0;
-  right: inherit;
-  bottom: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  padding: 20px;
-}
-
-.content03 p,
-.content05 p,
-.content07 p,
-.content03 span,
-.content05 span,
-.content07 span {
-  padding-left: 5px;
-}
-.row > img {
-  width: 8%;
-  margin: 12px;
-}
-.project_title {
-  position: absolute;
-  top: -90%;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
 }
 
 h1 {
