@@ -156,7 +156,6 @@
   .contact__infotxt {
     margin-top: 50px;
     font-size: 1.5em;
-    color: #b1b1b1;
   }
 }
 /* 데스크탑 사이즈 끝 */
@@ -217,8 +216,8 @@
   #contact__wrap {
     padding-top: 50px;
   }
-  .contact__title > h2 {
-    font-size: 3rem;
+  .contact__title > contact__title {
+    font-size: 3em;
     margin: 20px 0;
   }
   .contact__info {
@@ -240,7 +239,6 @@
   .contact__infotxt {
     margin-top: 50px;
     font-size: 1em;
-    color: #b1b1b1;
   }
   .content08 {
     max-width: 1600px;
@@ -334,7 +332,6 @@
   .contact__infotxt {
     margin-top: 50px;
     font-size: 1em;
-    color: #b1b1b1;
   }
   .content08 {
     max-width: 1600px;
@@ -474,7 +471,6 @@
   .contact__infotxt {
     margin-top: 50px;
     font-size: 0.8em;
-    color: #b1b1b1;
   }
 }
 /* 모바일 사이즈 끝 */
@@ -714,10 +710,6 @@ section {
   border-radius: 9%;
   box-shadow: 0 0 147px rgb(255 250 245);
 }
-.portfolio_img_list li::after {
-  content: "";
-}
-
 .portfolio_img_list li:hover::after {
   content: "Click";
   position: absolute;
@@ -737,6 +729,7 @@ section {
   text-align: center;
   z-index: 99;
 }
+
 .info_text {
   display: flex;
   justify-content: center;
@@ -813,7 +806,7 @@ button {
   outline: none;
   font-size: 9pt;
 }
-/* 16 */
+/* 포트폴리오 버튼 */
 .btn-16 {
   border: none;
   color: #000;
@@ -843,7 +836,7 @@ button {
 }
 
 #section04 {
-  background: #000;
+  background: linear-gradient(to top, #a3c7df, #1d2c50) #000;
   height: 60%;
   overflow: hidden;
 }
@@ -991,7 +984,9 @@ p {
   flex-direction: column;
   align-items: center;
 }
-
+.contact__title > h2 {
+  color: #666e9a;
+}
 .logo_center {
   display: flex;
   justify-content: center;
@@ -1013,9 +1008,11 @@ p {
 .contact__text {
   font-size: 1.2em;
   font-weight: bold;
-  color: #000;
+  color: #2d3146;
 }
-
+.contact__infotxt {
+  color: #131924;
+}
 footer {
   background-color: #fff;
   z-index: 99;
@@ -1025,7 +1022,7 @@ footer {
 .front_title > h2 {
   text-align: center;
   color: transparent;
-  -webkit-text-stroke: 2px #fff;
+  -webkit-text-stroke: 2px #ffffff;
 }
 
 .github {

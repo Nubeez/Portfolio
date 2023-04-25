@@ -226,7 +226,7 @@ $(function () {
   var theInterval;
 
   function startSlide() {
-    theInterval = setInterval(AutoSlide, 2500); //자동 슬라이드 설정
+    theInterval = setInterval(AutoSlide, 2000); //자동 슬라이드 설정
   }
 
   function stopSlide() {
@@ -248,10 +248,13 @@ $(function () {
 function btn(clickedDiv) {
   // 클릭된 div 요소의 id 값을 가져옴
   var id = clickedDiv.id;
+  var newLink = "";
 
   // id 값에 따라 다른 동작을 수행
   switch (id) {
     case "info_menu_0":
+      newLink = "https://nubeez.github.io/project_1";
+      $("#project-link").attr("href", newLink); // href 속성 변경
       $(document).ready(function () {
         $("li img").each(function (index) {
           var newSrc = "project_img/One/one" + "_" + (index + 1) + ".png";
@@ -264,8 +267,9 @@ function btn(clickedDiv) {
       });
       break;
     case "info_menu_1":
-      console.log("두 번째 버튼 클릭");
       // 버튼으로 이미지 src 변경
+      newLink = "https://nubeez.github.io/project_2";
+      $("#project-link").attr("href", newLink); // href 속성 변경
       $(document).ready(function () {
         $("li img").each(function (index) {
           var newSrc = "project_img/Two/two" + "_" + (index + 1) + ".png";
