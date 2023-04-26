@@ -143,16 +143,19 @@ function pauseAnimation() {
 }
 
 function handleScroll() {
+  // 콘텐츠의 크기와 위치를 가져옵니다.
   const contentRect = content02.getBoundingClientRect();
+  // 콘텐츠가 화면 안에 보이는지 확인합니다.
   const isContentVisible = contentRect.top < window.innerHeight && contentRect.bottom > 0;
 
+  // 콘텐츠가 화면 안에 보이면 애니메이션을 실행하고, 그렇지 않으면 애니메이션을 일시 정지합니다.
   if (isContentVisible) {
     playAnimation();
   } else {
     pauseAnimation();
   }
 }
-
+// 스크롤 이벤트가 발생할 때 handleScroll 함수를 호출합니다.
 window.addEventListener("scroll", handleScroll);
 
 // 메뉴를 클릭하면 해당 section으로 이동합니다.
@@ -177,18 +180,21 @@ function scrollToSection3() {
     behavior: "smooth",
   });
 }
-// top버튼 스크립트
+// 스크롤 이벤트가 발생할 때, 맨 위로 올라가는 버튼을 제어합니다.
 window.addEventListener("scroll", function () {
+  // 맨 위로 올라가는 버튼과 섹션 01을 가져옵니다.
   let btn = document.querySelector(".Top_btn");
   let section01 = document.querySelector("#section01");
 
+  // 스크롤이 섹션 01의 높이보다 크면, 버튼을 보이게 합니다.
   if (window.pageYOffset > section01.offsetHeight) {
     btn.style.display = "block";
   } else {
+    // 스크롤이 섹션 01의 높이보다 작으면, 버튼을 숨깁니다.
     btn.style.display = "none";
   }
+  // 맨 위로 올라가는 버튼을 클릭하면 페이지 맨 위로 부드럽게 이동합니다.
   btn.addEventListener("click", function () {
-    // 페이지 맨 위로 스크롤 이동
     window.scrollTo({top: 0, behavior: "smooth"});
   });
 });
@@ -240,6 +246,7 @@ $(function () {
       stopSlide();
     },
     function () {
+      // 마우스 아웃시, 슬라이드를 다시 시작합니다.
       startSlide();
     }
   );
@@ -248,7 +255,6 @@ $(function () {
 function btn(clickedDiv) {
   // 클릭된 div 요소의 id 값을 가져옴
   let id = clickedDiv.id;
-  let newLink = "";
 
   const links = [
     "https://nubeez.github.io/project_1",
