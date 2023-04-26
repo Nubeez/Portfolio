@@ -496,14 +496,14 @@ a {
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
+  margin: 0 25px;
 }
 
 .home_title_wrap > span {
   font-size: 8pt;
-  padding-left: 25px;
   color: #000;
 }
-.header {
+header {
   position: absolute;
   top: 0;
   left: 0;
@@ -511,44 +511,41 @@ a {
   z-index: 98;
 }
 
-.header .monument {
+header .monument {
   line-height: 35px;
   font-size: 24px;
   font-weight: bold;
   text-decoration: none;
   color: #333;
-  padding-left: 25px;
-  padding-top: 25px;
 }
 
-.header .nav {
+header .nav {
   position: absolute;
   top: 0%;
   left: 0;
   width: 100%;
   background-color: white;
-  transform: translateY(-100%);
-  transition: transform 0.3s ease;
 }
 
-.header .nav.show {
-  transform: translateY(0);
-}
-
-.header .nav__list {
-  height: 25px;
+header .nav__list {
   display: flex;
-  justify-content: flex-end;
-  align-items: center;
+  justify-content: flex-start;
   list-style: none;
+}
+
+header .nav__item {
+  margin: 20px 0px;
+}
+header .nav_item_right {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  display: flex;
+  list-style: none;
+  transform: translateY(-30%);
   margin-right: 30px;
 }
-
-.header .nav__item {
-  margin: 20px 0;
-}
-
-.header .nav__btn {
+header .nav__btn {
   font-size: 16px;
   font-weight: bold;
   text-decoration: none;
@@ -559,36 +556,40 @@ a {
   transition: opacity 0.3s ease;
 }
 
-.header .nav__btn:hover {
+.nav_btn_margin {
+  margin-left: 10px;
+}
+header .nav__btn:hover {
   opacity: 0.7;
 }
 
-.header .nav__caption {
+header .nav__caption {
   font-size: 12px;
   color: #999;
   margin-top: 5px;
   text-align: center;
 }
 
-.header .nav__caption-inner {
+header .nav__caption-inner {
   opacity: 0;
   padding: 5px 10px;
   border-radius: 20px;
   background-color: #f5f5f5;
 }
 
-.header .nav__item:hover .nav__caption-inner {
+header .nav__item:hover .nav__caption-inner {
   opacity: 1;
   transition: 1s;
 }
 
+/* 마우스 휠 애니메이션 */
 .mouse_wheel {
   position: absolute;
   top: 60%;
-  left: 50%;
+  left: 50.1%;
   width: 25px;
   height: 40px;
-  border: 2px solid #000;
+  border: 2px solid #ffffff;
   border-radius: 50px;
   box-sizing: border-box;
   transform: translate(-50%, -50%);
@@ -596,11 +597,11 @@ a {
 .mouse_wheel::before {
   position: absolute;
   top: 50%;
-  left: 40%;
+  left: 35%;
   content: "";
   width: 5px;
   height: 5px;
-  background-color: #000;
+  background-color: #ffffff;
   transform: translate(-40%, -40%);
   border-radius: 100%;
   animation: wheel 2s infinite;
@@ -613,7 +614,7 @@ a {
   left: 50%;
   border-style: solid;
   border-width: 0 0.4rem 0.4rem 0.4rem;
-  border-color: transparent transparent #000 transparent;
+  border-color: transparent transparent #ffffff transparent;
   transform: translateY(-50%) rotate(180deg) translateX(45%);
   animation: arrow 2s infinite;
 }
@@ -623,7 +624,7 @@ a {
   left: 50%;
   border-style: solid;
   border-width: 0 0.4rem 0.4rem 0.4rem;
-  border-color: transparent transparent #000 transparent;
+  border-color: transparent transparent #ffffff transparent;
   transform: translateY(-50%) rotate(180deg) translateX(45%);
   animation: arrow 2s infinite;
 }
@@ -638,10 +639,11 @@ section {
 }
 
 #section01 {
-  background: rgb(255, 250, 245);
+  background: #000000;
   width: 100%;
   height: 100%;
   position: relative;
+  color: #fff;
 }
 
 #section02 {
@@ -653,13 +655,16 @@ section {
 
 /* grid */
 #section03 {
-  background: rgb(255, 250, 245);
+  background: linear-gradient(to top, #1d2c50, #000);
   overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
   flex-wrap: wrap;
+}
+.project_title {
+  color: #fff;
 }
 #info_frame_wrap {
   width: 80%;
@@ -694,6 +699,7 @@ section {
   padding: 0;
   transition: all 0.5s ease-in-out; /* 이 부분만 수정하였습니다. */
   list-style: none;
+  z-index: 1;
 }
 
 .portfolio_img_list li {
@@ -708,7 +714,7 @@ section {
   width: 100%;
   height: auto;
   border-radius: 9%;
-  box-shadow: 0 0 147px rgb(255 250 245);
+  box-shadow: 0 0 10px rgb(113 143 191);
 }
 .portfolio_img_list li:hover::after {
   content: "Click";
@@ -728,12 +734,14 @@ section {
   font-weight: bold;
   text-align: center;
   z-index: 99;
+  border-radius: 9%;
 }
 
 .info_text {
   display: flex;
   justify-content: center;
   align-items: center;
+  color: #fff;
 }
 table {
   width: 100%;
@@ -786,9 +794,6 @@ td {
   align-items: center;
   justify-content: flex-start;
 }
-button {
-  margin: 20px;
-}
 .custom-btn {
   width: 130px;
   height: 40px;
@@ -805,6 +810,7 @@ button {
   box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5), 7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
   outline: none;
   font-size: 9pt;
+  margin: 20px;
 }
 /* 포트폴리오 버튼 */
 .btn-16 {
@@ -836,7 +842,7 @@ button {
 }
 
 #section04 {
-  background: linear-gradient(to top, #a3c7df, #1d2c50) #000;
+  background: linear-gradient(to top, #a0c8e1, #1d2c50) #000;
   height: 60%;
   overflow: hidden;
 }
