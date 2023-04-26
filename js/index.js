@@ -181,7 +181,6 @@ function scrollToSection3() {
 window.addEventListener("scroll", function () {
   let btn = document.querySelector(".Top_btn");
   let section01 = document.querySelector("#section01");
-  let section02 = document.querySelector("#section02");
 
   if (window.pageYOffset > section01.offsetHeight) {
     btn.style.display = "block";
