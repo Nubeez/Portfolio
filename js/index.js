@@ -1,4 +1,5 @@
 const sections = document.querySelectorAll("section");
+gsap.registerPlugin(ScrollTrigger);
 sections.forEach((section) => {
   const imgs = section.querySelectorAll(".front_img");
   const imgCount = imgs.length; // 추가된 변수
@@ -178,9 +179,9 @@ function scrollToSection3() {
 }
 // top버튼 스크립트
 window.addEventListener("scroll", function () {
-  var btn = document.querySelector(".Top_btn");
-  var section01 = document.querySelector("#section01");
-  var section02 = document.querySelector("#section02");
+  let btn = document.querySelector(".Top_btn");
+  let section01 = document.querySelector("#section01");
+  let section02 = document.querySelector("#section02");
 
   if (window.pageYOffset > section01.offsetHeight) {
     btn.style.display = "block";
@@ -195,7 +196,7 @@ window.addEventListener("scroll", function () {
 
 // 슬라이드 시작
 $(function () {
-  var $slider = $(".portfolio_img_list"),
+  let $slider = $(".portfolio_img_list"),
     $firstSlide = $slider
       .find("li")
       .first() // 첫번째 슬라이드
@@ -209,7 +210,7 @@ $(function () {
       .find("li")
       .first() // 첫 번째 슬라이드
       .appendTo($slider); // 맨 마지막으로 보내기
-    var $lastSlide = $slider
+    let $lastSlide = $slider
       .find("li")
       .last() // 맨 마지막으로 보낸 슬라이드
       .stop(true)
@@ -226,7 +227,7 @@ $(function () {
   var theInterval;
 
   function startSlide() {
-    theInterval = setInterval(AutoSlide, 2000); //자동 슬라이드 설정
+    theInterval = setInterval(AutoSlide, 2300); //자동 슬라이드 설정
   }
 
   function stopSlide() {
@@ -247,74 +248,102 @@ $(function () {
 
 function btn(clickedDiv) {
   // 클릭된 div 요소의 id 값을 가져옴
-  var id = clickedDiv.id;
-  var newLink = "";
+  let id = clickedDiv.id;
+  let newLink = "";
+
+  const links = [
+    "https://nubeez.github.io/project_1",
+    "https://nubeez.github.io/project_2",
+    "https://nubeez.github.io/project_3",
+    "https://nubeez.github.io/project_4",
+    "https://nubeez.github.io/project_5",
+  ];
+
+  const contents = [".content_01", ".content_02", ".content_03", ".content_04", ".content_05", ".content_06"];
 
   // id 값에 따라 다른 동작을 수행
   switch (id) {
     case "info_menu_0":
-      newLink = "https://nubeez.github.io/project_1";
-      $("#project-link").attr("href", newLink); // href 속성 변경
-      $(document).ready(function () {
-        $("li img").each(function (index) {
-          var newSrc = "project_img/One/one" + "_" + (index + 1) + ".png";
-          $(this).attr("src", newSrc);
-          // content_01 div 보이도록 변경
-          $(".content_01").css("display", "inline-flex");
-          // 나머지 content div는 숨김
-          $(".content_02, .content_03, .content_04, .content_05, .content_06").css("display", "none");
-        });
+      // 링크 정보를 변경
+      $(".link_wrap").attr("href", links[0]);
+      // 이미지 요소 정보를 변경
+      $("li img").each((index, img) => {
+        const newSrc = `project_img/One/one_${index + 1}.png`;
+        $(img).attr("src", newSrc);
       });
+      // 내용 요소 정보를 변경
+      for (let i = 0; i < contents.length; i++) {
+        const content = contents[i];
+        $(content).css("display", i === 0 ? "inline-flex" : "none");
+        // 인덱스가 0인 경우에는 보이도록 변경, 그 외의 경우에는 숨김
+      }
       break;
+    //   2번째버튼
     case "info_menu_1":
-      // 버튼으로 이미지 src 변경
-      newLink = "https://nubeez.github.io/project_2";
-      $("#project-link").attr("href", newLink); // href 속성 변경
-      $(document).ready(function () {
-        $("li img").each(function (index) {
-          var newSrc = "project_img/Two/two" + "_" + (index + 1) + ".png";
-          $(this).attr("src", newSrc);
-          // content_02 div 보이도록 변경
-          $(".content_02").css("display", "inline-flex");
-          // 나머지 content div는 숨김
-          $(".content_01, .content_03, .content_04, .content_05, .content_06").css("display", "none");
-        });
+      // 링크 정보를 변경
+      $(".link_wrap").attr("href", links[1]);
+      // 이미지 요소 정보를 변경
+      $("li img").each((index, img) => {
+        const newSrc = `project_img/Two/two_${index + 1}.png`;
+        $(img).attr("src", newSrc);
       });
+      // 내용 요소 정보를 변경
+      for (let i = 0; i < contents.length; i++) {
+        const content = contents[i];
+        $(content).css("display", i === 0 ? "inline-flex" : "none");
+        // 인덱스가 0인 경우에는 보이도록 변경, 그 외의 경우에는 숨김
+      }
       break;
+    //   3번째버튼
     case "info_menu_2":
-      $(document).ready(function () {
-        $("li img").each(function (index) {
-          var newSrc = "project_img/Three/three" + "_" + (index + 1) + ".png";
-          $(this).attr("src", newSrc); // content_01 div 보이도록 변경
-          $(".content_03").css("display", "inline-flex");
-          // 나머지 content div는 숨김
-          $(".content_01, .content_02, .content_04, .content_05, .content_06").css("display", "none");
-        });
+      // 링크 정보를 변경
+      $(".link_wrap").attr("href", links[2]);
+      // 이미지 요소 정보를 변경
+      $("li img").each((index, img) => {
+        const newSrc = `project_img/Three/three_${index + 1}.png`;
+        $(img).attr("src", newSrc);
       });
+      // 내용 요소 정보를 변경
+      for (let i = 0; i < contents.length; i++) {
+        const content = contents[i];
+        $(content).css("display", i === 0 ? "inline-flex" : "none");
+        // 인덱스가 0인 경우에는 보이도록 변경, 그 외의 경우에는 숨김
+      }
       break;
+    //   4번째버튼
     case "info_menu_3":
-      $(document).ready(function () {
-        $("li img").each(function (index) {
-          var newSrc = "project_img/Four/four" + "_" + (index + 1) + ".png";
-          $(this).attr("src", newSrc); // content_01 div 보이도록 변경
-          $(".content_04").css("display", "inline-flex");
-          // 나머지 content div는 숨김
-          $(".content_01, .content_02, .content_03, .content_05, .content_06").css("display", "none");
-        });
+      // 링크 정보를 변경
+      $(".link_wrap").attr("href", links[3]);
+      // 이미지 요소 정보를 변경
+      $("li img").each((index, img) => {
+        const newSrc = `project_img/Four/four_${index + 1}.png`;
+        $(img).attr("src", newSrc);
       });
+      // 내용 요소 정보를 변경
+      for (let i = 0; i < contents.length; i++) {
+        const content = contents[i];
+        $(content).css("display", i === 0 ? "inline-flex" : "none");
+        // 인덱스가 0인 경우에는 보이도록 변경, 그 외의 경우에는 숨김
+      }
       break;
+    //   5번째버튼
     case "info_menu_4":
-      $(document).ready(function () {
-        $("li img").each(function (index) {
-          var newSrc = "project_img/Five/five" + "_" + (index + 1) + ".png";
-          $(this).attr("src", newSrc); // content_01 div 보이도록 변경
-          $(".content_05").css("display", "inline-flex");
-          // 나머지 content div는 숨김
-          $(".content_01, .content_02, .content_03, .content_04, .content_06").css("display", "none");
-        });
+      // 링크 정보를 변경
+      $(".link_wrap").attr("href", links[4]);
+      // 이미지 요소 정보를 변경
+      $("li img").each((index, img) => {
+        const newSrc = `project_img/Five/five_${index + 1}.png`;
+        $(img).attr("src", newSrc);
       });
+      // 내용 요소 정보를 변경
+      for (let i = 0; i < contents.length; i++) {
+        const content = contents[i];
+        $(content).css("display", i === 0 ? "inline-flex" : "none");
+        // 인덱스가 0인 경우에는 보이도록 변경, 그 외의 경우에는 숨김
+      }
       break;
+    // 다른 id 값에 대한 동작 추가(없음)
     default:
-      console.log("잘못된 버튼 클릭");
+      break;
   }
 }
