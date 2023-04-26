@@ -10,7 +10,7 @@ sections.forEach((section) => {
   window.onload = function () {
     hideLoading();
   };
-  //   intro 로딩창
+  //   intro 로딩
   function hideLoading() {
     const loading = document.getElementById("loading");
     // 로딩창 요소 가져오기
@@ -347,7 +347,7 @@ function btn(clickedDiv) {
         // 인덱스가 4인 경우에는 보이도록 변경, 그 외의 경우에는 숨김
       }
       break;
-    // 다른 id 값에 대한 동작 추가(없음)
+    // 다른 id 값에 대한 동작 추가
     default:
       break;
   }
