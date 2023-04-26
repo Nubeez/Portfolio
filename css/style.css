@@ -4,6 +4,14 @@
   font-weight: 700;
   font-style: normal;
 }
+@font-face {
+  font-family: "Dolbomche_R";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2104@1.0/Dolbomche_R.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+/* 폰트 */
+
 @keyframes blink-caret {
   from,
   to {
@@ -714,7 +722,7 @@ section {
   width: 100%;
   height: auto;
   border-radius: 9%;
-  box-shadow: 0 0 10px rgb(113 143 191);
+  box-shadow: 0 0 10px rgb(72, 102, 149);
 }
 .portfolio_img_list li:hover::after {
   content: "Click";
@@ -742,6 +750,7 @@ section {
   justify-content: center;
   align-items: center;
   color: #fff;
+  font-family: "Dolbomche_R";
 }
 table {
   width: 100%;
@@ -761,7 +770,7 @@ td {
   padding: 7px;
 }
 .deteail-content-wrap {
-  padding-top: 10%;
+  padding-top: 5%;
   padding-left: 10%;
 }
 .btn_content {
@@ -802,12 +811,12 @@ td {
   padding: 10px 25px;
   font-family: "Lato", sans-serif;
   font-weight: 500;
-  background: #f2e2e1;
+  background: #fff;
   cursor: pointer;
   transition: all 0.3s ease;
   position: relative;
   display: inline-block;
-  box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5), 7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5), 7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(255, 255, 255, 0.1);
   outline: none;
   font-size: 9pt;
   margin: 20px;
@@ -822,11 +831,12 @@ td {
   content: "";
   width: 0;
   height: 100%;
-  top: 0;
+  top: 1px;
   left: 0;
   direction: rtl;
+  border-radius: 5px;
   z-index: 0;
-  box-shadow: -7px -7px 20px 0px #fff9, -4px -4px 5px 0px #fff9, 7px 7px 20px 0px #0002, 4px 4px 5px 0px #0001;
+  box-shadow: -7px -7px 20px 0px #fff9, -4px -4px 5px 0px #fff9, 7px 7px 20px 0px rgba(255, 255, 255, 0.133), 4px 4px 5px 0px #0001;
   transition: all 0.3s ease;
 }
 .btn-16:hover {
@@ -954,7 +964,9 @@ article {
   margin-top: 10px;
 }
 .font_small {
-  font-size: 1rem;
+  font-size: 1.1rem;
+  font-family: "Dolbomche_R";
+  /* 내용폰트추가 */
 }
 
 h1 {

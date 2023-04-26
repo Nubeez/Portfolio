@@ -289,8 +289,8 @@ function btn(clickedDiv) {
       // 내용 요소 정보를 변경
       for (let i = 0; i < contents.length; i++) {
         const content = contents[i];
-        $(content).css("display", i === 0 ? "inline-flex" : "none");
-        // 인덱스가 0인 경우에는 보이도록 변경, 그 외의 경우에는 숨김
+        $(content).css("display", i === 1 ? "inline-flex" : "none");
+        // 인덱스가 1인 경우에는 보이도록 변경, 그 외의 경우에는 숨김
       }
       break;
     //   3번째버튼
@@ -305,8 +305,8 @@ function btn(clickedDiv) {
       // 내용 요소 정보를 변경
       for (let i = 0; i < contents.length; i++) {
         const content = contents[i];
-        $(content).css("display", i === 0 ? "inline-flex" : "none");
-        // 인덱스가 0인 경우에는 보이도록 변경, 그 외의 경우에는 숨김
+        $(content).css("display", i === 2 ? "inline-flex" : "none");
+        // 인덱스가 2인 경우에는 보이도록 변경, 그 외의 경우에는 숨김
       }
       break;
     //   4번째버튼
@@ -321,8 +321,8 @@ function btn(clickedDiv) {
       // 내용 요소 정보를 변경
       for (let i = 0; i < contents.length; i++) {
         const content = contents[i];
-        $(content).css("display", i === 0 ? "inline-flex" : "none");
-        // 인덱스가 0인 경우에는 보이도록 변경, 그 외의 경우에는 숨김
+        $(content).css("display", i === 3 ? "inline-flex" : "none");
+        // 인덱스가 3인 경우에는 보이도록 변경, 그 외의 경우에는 숨김
       }
       break;
     //   5번째버튼
@@ -337,8 +337,8 @@ function btn(clickedDiv) {
       // 내용 요소 정보를 변경
       for (let i = 0; i < contents.length; i++) {
         const content = contents[i];
-        $(content).css("display", i === 0 ? "inline-flex" : "none");
-        // 인덱스가 0인 경우에는 보이도록 변경, 그 외의 경우에는 숨김
+        $(content).css("display", i === 4 ? "inline-flex" : "none");
+        // 인덱스가 4인 경우에는 보이도록 변경, 그 외의 경우에는 숨김
       }
       break;
     // 다른 id 값에 대한 동작 추가(없음)
