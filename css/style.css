@@ -45,7 +45,20 @@
   }
 }
 /* 타이핑 효과 , 마우스 휠 효과 */
-
+@keyframes Shake_it {
+  from {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(75deg);
+  }
+  50% {
+    transform: rotate(-20deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
 /* 데스크탑 사이즈 시작 */
 @media screen and (min-width: 1025px) {
   .content02 {
@@ -1013,7 +1026,10 @@ p {
 .logo_center > img {
   width: 20%;
 }
-
+.logo_img:hover img {
+  animation: Shake_it 1.2s;
+  animation-iteration-count: 2;
+}
 .contact_effect {
   margin-top: 10px;
   text-align: center;
