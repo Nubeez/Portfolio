@@ -14,8 +14,8 @@ sections.forEach((section) => {
   function hideLoading() {
     const loading = document.getElementById("loading");
     // 로딩창 요소 가져오기
-    // const originalOverflow = document.body.style.overflow;
-    // document.body.style.overflow = "hidden";
+    const originalOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
     // body 요소에 overflow: hidden 스타일을 추가하여 스크롤을 막습니다.
 
     // 로딩창 요소 애니메이션 효과 추가
