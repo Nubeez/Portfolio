@@ -226,7 +226,7 @@ $(function () {
   var theInterval;
 
   function startSlide() {
-    theInterval = setInterval(AutoSlide, 230000); //자동 슬라이드 설정
+    theInterval = setInterval(AutoSlide, 2300); //자동 슬라이드 설정
   }
 
   function stopSlide() {
