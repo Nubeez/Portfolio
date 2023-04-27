@@ -193,10 +193,12 @@
     justify-content: center;
     transform: translate(0%, -50%);
   }
+
   .typing::before {
     content: "안녕하세요.";
     position: absolute;
     top: -30%;
+    font-size: 120px;
     left: 0%;
     height: 17%;
     overflow: hidden;
@@ -227,7 +229,7 @@
   .front_imgbox2 {
     transform: translateX(31%);
   }
-  .front_title > h1 {
+  .front_title > span {
     color: transparent;
     -webkit-text-stroke: 2px #fff;
     font-size: 3rem;
@@ -320,7 +322,7 @@
   .front_imgbox2 {
     transform: translateX(31%);
   }
-  .front_title > h1 {
+  .front_title > span {
     color: transparent;
     -webkit-text-stroke: 2px #fff;
     font-size: 3rem;
@@ -438,7 +440,7 @@
   .front_imgbox_about {
     transform: translateX(-86%);
   }
-  .front_title > h1 {
+  .front_title > span {
     font-size: 2rem;
     margin: 0;
     padding: 0;
@@ -927,6 +929,9 @@ article {
   transform: translateY(100%);
   /* 아래로 숨겨진 상태로 설정 */
 }
+.content01 > span {
+  font-size: 3rem;
+}
 .content04 {
   position: absolute;
   top: 20%;
@@ -1051,11 +1056,13 @@ footer {
   background-color: #fff;
   z-index: 99;
 }
-
-.front_title > h1,
-.front_title > h2 {
+.front_title {
   text-align: center;
+}
+.front_title > span,
+.front_title > span {
   color: transparent;
+  font-size: 5rem;
   -webkit-text-stroke: 2px #ffffff;
 }
 
