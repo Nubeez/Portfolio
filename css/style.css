@@ -175,7 +175,7 @@
     margin-top: 100px;
   }
   .contact__infotxt {
-    margin-top: 50px;
+    margin-top: 150px;
     font-size: 1.5em;
   }
 }
@@ -256,11 +256,10 @@
     align-items: center;
     justify-content: center;
     width: 85%;
-    border: 1px solid #838383;
     padding: 10px;
   }
   .contact__infotxt {
-    margin-top: 50px;
+    margin-top: 150px;
     font-size: 1em;
   }
   .content08 {
@@ -349,12 +348,11 @@
     align-items: center;
     justify-content: center;
     width: 85%;
-    border: 1px solid #838383;
     padding: 10px;
   }
   .contact__infotxt {
-    margin-top: 50px;
-    font-size: 1em;
+    margin-top: 70px;
+    font-size: 1.2em;
   }
   .content08 {
     max-width: 1600px;
@@ -492,7 +490,7 @@
     font-size: 0.6rem;
   }
   .contact__infotxt {
-    margin-top: 50px;
+    margin-top: 150px;
     font-size: 0.8em;
   }
 }
@@ -1075,11 +1073,14 @@ footer {
   color: #000;
 }
 
+.content08 > .gitlink_font {
+  font-size: 14pt;
+}
 .icon_bye {
-  font-size: 20px;
   margin-left: 5px;
 }
 
 .footer_txt > span {
   color: #000;
+  font-size: 14pt;
 }
