@@ -30,26 +30,23 @@
   bottom: 0;
 }
 .loading_wait {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 56px;
-  height: 0px;
+  height: 90%;
   margin: auto;
-  position: absolute;
-  left: 48.2%;
-  top: 41%;
-  transform: translate(-50%, -50%);
   color: #fff;
   font-size: 26pt;
   font-weight: bold;
 }
 .loading_wait::after {
   content: ".";
+  display: flex;
+  align-items: center;
   width: 56px;
   height: 0px;
   margin: auto;
-  position: absolute;
-  left: 155px;
-  top: 5px;
-  transform: translate(-50%, -50%);
   color: #fff;
   font-size: 26pt;
   font-weight: bold;
