@@ -110,6 +110,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        position: relative;
     }
 
     table {
@@ -1489,12 +1490,14 @@ section {
     font-size: 1rem;
     font-weight: bold;
     text-align: center;
-    z-index: 99;
+    z-index: 1;
     border-radius: 9%;
+    pointer-events: none;
 }
 
 .portfolio_img_list {
     padding: 10px 50px;
+    position: relative;
 }
 
 .portfolio_img_list li:first-child {
