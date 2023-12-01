@@ -201,39 +201,39 @@ window.addEventListener("scroll", function () {
 
 // 슬라이드 시작
 $(function () {
-    // let $slider = $(".portfolio_img_list"),
-    //     $firstSlide = $slider
-    //         .find("li")
-    //         .first() // 첫번째 슬라이드
-    //         .stop(true)
-    //         .animate({ opacity: 1 }, 200); // 첫번째 슬라이드만 보이게 하기
+    let $slider = $(".portfolio_img_list"),
+        $firstSlide = $slider
+            .find("li")
+            .first() // 첫번째 슬라이드
+            .stop(true)
+            .animate({ opacity: 1 }, 200); // 첫번째 슬라이드만 보이게 하기
 
-    // function AutoSlide() {
-    //     stopSlide();
-    //     startSlide(); //타이머 초기화
-    //     $firstSlide = $slider
-    //         .find("li")
-    //         .first() // 첫 번째 슬라이드
-    //         .appendTo($slider); // 맨 마지막으로 보내기
-    //     let $lastSlide = $slider
-    //         .find("li")
-    //         .last() // 맨 마지막으로 보낸 슬라이드
-    //         .stop(true)
-    //         .animate({ opacity: 0 }, 400); // fadeOut시키기
-    //     $firstSlide = $slider
-    //         .find("li")
-    //         .first() // 맨 처음 슬라이드
-    //         .stop(true)
-    //         .animate({ opacity: 1 }, 400); // fadeIn 시키기
-    // }
+    function AutoSlide() {
+        stopSlide();
+        startSlide(); //타이머 초기화
+        $firstSlide = $slider
+            .find("li")
+            .first() // 첫 번째 슬라이드
+            .appendTo($slider); // 맨 마지막으로 보내기
+        let $lastSlide = $slider
+            .find("li")
+            .last() // 맨 마지막으로 보낸 슬라이드
+            .stop(true)
+            .animate({ opacity: 0 }, 400); // fadeOut시키기
+        $firstSlide = $slider
+            .find("li")
+            .first() // 맨 처음 슬라이드
+            .stop(true)
+            .animate({ opacity: 1 }, 400); // fadeIn 시키기
+    }
 
-    // startSlide(); // 자동 슬라이드 시작
+    startSlide(); // 자동 슬라이드 시작
 
-    // var theInterval;
+    var theInterval;
 
-    // function startSlide() {
-    //     theInterval = setInterval(AutoSlide, 5000); //자동 슬라이드 설정
-    // }
+    function startSlide() {
+        theInterval = setInterval(AutoSlide, 5000); //자동 슬라이드 설정
+    }
 
     function stopSlide() {
         //자동 멈추기

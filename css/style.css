@@ -108,7 +108,7 @@
     #slider-container {
         width: 100%;
         display: flex;
-        justify-content: space-evenly;
+        justify-content: center;
         align-items: center;
     }
 
@@ -255,27 +255,6 @@
         list-style-type: none;
         margin: 0 25px;
     }
-
-    /* .portfolio_img_list li:hover::after {
-        content: "Click";
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.3);
-        border-radius: 9%;
-        color: #fff;
-        font-size: 24px;
-        font-weight: bold;
-        text-align: center;
-        z-index: 99;
-        border-radius: 9%;
-    } */
 }
 
 /* 데스크탑 사이즈 끝 */
@@ -293,12 +272,23 @@
         transform: translate(0%, -50%);
     }
 
+    header .nav__btn {
+        font-size: 16px;
+        font-weight: bold;
+        text-decoration: none;
+        color: #333;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        transition: opacity 0.3s ease;
+    }
+
     .project_title {
         padding: 10px 0px;
     }
 
     #section03 {
-        height: 140vh;
+        height: 150vh !important;
     }
 
     .deteail-content-wrap {
@@ -313,6 +303,14 @@
     .deteail-content {
         font-size: 0.8rem;
         padding: 1px;
+    }
+
+    .deteail-content-wrap {
+        padding-left: 5%;
+    }
+
+    .btn_content>h2 {
+        font-size: 2rem;
     }
 
     table {
@@ -332,7 +330,7 @@
         width: 100%;
         height: 100%;
         display: flex;
-        justify-content: space-evenly;
+        /* justify-content: space-evenly; */
         align-items: center;
         flex-direction: column;
     }
@@ -461,28 +459,6 @@
         justify-content: space-between;
         align-items: center;
     }
-
-    .portfolio_img_list li:hover::after {
-        content: "Click";
-        position: absolute;
-        top: 50%;
-        left: 35%;
-        transform: translate(-50%, -50%);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 70%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.3);
-        /* background-color: rgba(255, 78, 14, 0.217); */
-        border-radius: 0%;
-        color: #fff;
-        font-size: 24px;
-        font-weight: bold;
-        text-align: center;
-        z-index: 99;
-        border-radius: 9%;
-    }
 }
 
 /* 태블릿 가로 사이즈 끝*/
@@ -534,12 +510,23 @@
         transform: translate(0%, -50%);
     }
 
+    header .nav__btn {
+        font-size: 16px;
+        font-weight: bold;
+        text-decoration: none;
+        color: #333;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        transition: opacity 0.3s ease;
+    }
+
     .project_title {
         padding: 10px 0px;
     }
 
     #section03 {
-        height: 140vh !important;
+        height: 145vh !important;
     }
 
     .deteail-content-wrap {
@@ -716,26 +703,6 @@
         to {
             width: 48%;
         }
-    }
-
-    .portfolio_img_list li:hover::after {
-        content: "Click";
-        position: absolute;
-        top: 50%;
-        left: 36.5%;
-        transform: translate(-50%, -50%);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 73%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.3);
-        color: #fff;
-        font-size: 24px;
-        font-weight: bold;
-        text-align: center;
-        z-index: 99;
-        border-radius: 9%;
     }
 }
 
@@ -992,6 +959,17 @@
         white-space: nowrap;
     }
 
+    header .nav__btn {
+        font-size: 16px;
+        font-weight: bold;
+        text-decoration: none;
+        color: #333;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        transition: opacity 0.3s ease;
+    }
+
     /* 타이핑 효과를 위해 줄바꿈을 금지 */
     .typing.playing::before {
         animation: typing2 2s steps(6, end), blink-caret 0.75s step-end infinite;
@@ -1013,27 +991,10 @@
 
 /* 포트폴리오 반응형 사이즈 따로추가*/
 @media (max-width: 425px) {
-
-    .portfolio_img_list li:hover::after {
-        content: "Click";
-        position: absolute;
-        top: 50%;
-        left: 20%;
-        transform: translate(-50%, -50%);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 40%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.3);
-        border-radius: 0%;
-        color: #fff;
-        font-size: 24px;
-        font-weight: bold;
-        text-align: center;
-        z-index: 99;
-        border-radius: 9%;
+    #section03 {
+        height: 125vh !important;
     }
+
 }
 
 /* 포트폴리오 반응형 사이즈 */
@@ -1114,9 +1075,12 @@
 }
 
 /* 아이폰12pro 기준 타이핑 끝*/
-/* 포트폴리오 반응형 사이즈 따로추가*/
-@media (max-width: 375px) {
 
+/* 아이폰se 기준*/
+@media (max-width: 375px) {
+    #section03 {
+        height: 135vh !important;
+    }
 
     header .nav__btn {
         font-size: 16px;
@@ -1131,27 +1095,6 @@
 
     .nav__item2-1 {
         text-align: center;
-    }
-
-    .portfolio_img_list li:hover::after {
-        content: "Click";
-        position: absolute;
-        top: 50%;
-        left: 17.5%;
-        transform: translate(-50%, -50%);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 35%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.3);
-        border-radius: 0%;
-        color: #fff;
-        font-size: 24px;
-        font-weight: bold;
-        text-align: center;
-        z-index: 99;
-        border-radius: 9%;
     }
 }
 
@@ -1191,7 +1134,7 @@
 }
 
 /* 갤럭시 s8+ 기준 타이핑 끝*/
-/* 아이폰se 기준 타이핑 */
+/*모바일 기준 타이핑 */
 @media (max-width: 320px) {
     .project_title>h2 {
         font-size: 2rem;
@@ -1239,29 +1182,8 @@
         }
     }
 
-    .portfolio_img_list li:hover::after {
-        content: "Click";
-        position: absolute;
-        top: 50%;
-        left: 15%;
-        transform: translate(-50%, -50%);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 30%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.3);
-        border-radius: 0%;
-        color: #fff;
-        font-size: 24px;
-        font-weight: bold;
-        text-align: center;
-        z-index: 99;
-        border-radius: 9%;
-    }
 }
 
-/* 아이폰se 기준 타이핑 끝*/
 @media (max-width: 280px) {
     .typing::before {
         content: "안녕하세요.";
@@ -1544,7 +1466,30 @@ section {
     display: flex;
 }
 
-.portfolio_img_list {}
+.portfolio_img_list li:hover::after {
+    content: "Click";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 9%;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    z-index: 99;
+    border-radius: 9%;
+}
+
+.portfolio_img_list {
+    padding: 10px 50px;
+}
 
 .portfolio_img_list li:first-child {
     display: block;
