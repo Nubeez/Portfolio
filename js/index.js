@@ -262,6 +262,7 @@ function btn(clickedDiv) {
         "https://nubeez.github.io/project_3",
         "https://nubeez.github.io/project_4",
         "https://nubeez.github.io/project_5",
+        "https://nubeez.github.io/project_6",
     ];
 
     const contents = [".content_01", ".content_02", ".content_03", ".content_04", ".content_05", ".content_06"];
@@ -345,6 +346,22 @@ function btn(clickedDiv) {
                 const content = contents[i];
                 $(content).css("display", i === 4 ? "inline-flex" : "none");
                 // 인덱스가 4인 경우에는 보이도록 변경, 그 외의 경우에는 숨김
+            }
+            break;
+        //   6번째버튼
+        case "info_menu_5":
+            // 링크 정보를 변경
+            $(".link_wrap").attr("href", links[5]);
+            // 이미지 요소 정보를 변경
+            $("li img").each((index, img) => {
+                const newSrc = `project_img/Six/six_${index + 1}.png`;
+                $(img).attr("src", newSrc);
+            });
+            // 내용 요소 정보를 변경
+            for (let i = 0; i < contents.length; i++) {
+                const content = contents[i];
+                $(content).css("display", i === 5 ? "inline-flex" : "none");
+                // 인덱스가 5인 경우에는 보이도록 변경, 그 외의 경우에는 숨김
             }
             break;
         // 다른 id 값에 대한 동작 추가

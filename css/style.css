@@ -1538,6 +1538,7 @@ td {
 .deteail-content {
     font-size: 1rem;
     padding: 7px;
+    list-style: disc;
 }
 
 .content_02 {
